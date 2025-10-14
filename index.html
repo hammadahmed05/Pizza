@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍕 HAMMAD'S GLOBAL PIZZA EMPIRE - World's #1 Pizza Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .orbitron { font-family: 'Orbitron', monospace; }
+    .righteous { font-family: 'Righteous', cursive; }
+    
+    /* EPIC ANIMATED BACKGROUND */
+    .cosmic-bg {
+      background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+      background-size: 400% 400%;
+      animation: cosmicFlow 20s ease infinite;
+      position: relative;
+    }
+    
+    .cosmic-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g"><stop offset="20%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="50%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="3" fill="url(%23g)"><animate attributeName="cy" values="20;80;20" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="3" fill="url(%23g)"><animate attributeName="cx" values="80;20;80" dur="4s" repeatCount="indefinite"/></circle><circle cx="40" cy="40" r="2" fill="url(%23g)"><animate attributeName="r" values="2;8;2" dur="2s" repeatCount="indefinite"/></circle></svg>') repeat;
+      opacity: 0.3;
+      animation: floatingParticles 15s linear infinite;
+    }
+    
+    @keyframes cosmicFlow {
+      0%, 100% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+    }
+    
+    @keyframes floatingParticles {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-100px) rotate(360deg); }
+    }
+    
+    /* LEGENDARY SPLASH SCREEN */
+    .legendary-splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #43e97b 100%);
+      background-size: 300% 300%;
+      animation: epicGradient 8s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes epicGradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .mega-pizza-loader {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #ff6b6b);
+      position: relative;
+      animation: megaSpin 3s linear infinite;
+      box-shadow: 
+        0 0 60px rgba(255, 107, 107, 0.8),
+        0 0 120px rgba(78, 205, 196, 0.6),
+        0 0 180px rgba(69, 183, 209, 0.4);
+    }
+    
+    .mega-pizza-loader::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ffd700, #ff8c00);
+      animation: counterMegaSpin 3s linear infinite;
+    }
+    
+    .mega-pizza-loader::after {
+      content: '🍕';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      animation: pizzaPulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+    }
+    
+    @keyframes megaSpin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    
+    @keyframes counterMegaSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+    
+    @keyframes pizzaPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
+    
+    .splash-title {
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      from { 
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        transform: scale(1);
+      }
+      to { 
+        text-shadow: 
+          0 0 30px rgba(255, 255, 255, 1),
+          0 0 60px rgba(255, 107, 107, 0.8),
+          0 0 90px rgba(78, 205, 196, 0.6);
+        transform: scale(1.05);
+      }
+    }
+    
+    /* ULTRA MODERN GLASS MORPHISM */
+    .ultra-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    
+    .mega-hover {
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mega-hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.8s;
+    }
+    
+    .mega-hover:hover::before {
+      left: 100%;
+    }
+    
+    .mega-hover:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.25),
+        0 0 50px rgba(255, 255, 255, 0.3);
+    }
+    
+    /* COUNTRY SELECTION CARDS - NEXT LEVEL */
+    .country-masterpiece {
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(25px);
+      border: 2px solid transparent;
+    }
+    
+    .country-masterpiece::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.8s;
+    }
+    
+    .country-masterpiece:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .country-masterpiece:hover {
+      transform: translateY(-20px) rotateY(5deg) scale(1.08);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(255, 255, 255, 0.2);
+    }
+    
+    .country-masterpiece.selected {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      transform: scale(1.1);
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.2),
+        0 0 80px rgba(255, 255, 255, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+    
+    /* REVOLUTIONARY BUTTONS */
+    .revolution-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid transparent;
+    }
+    
+    .revolution-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s;
+    }
+    
+    .revolution-btn:hover::before {
+      left: 100%;
+    }
+    
+    .revolution-btn:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 
+        0 25px 50px rgba(102, 126, 234, 0.4),
+        0 0 40px rgba(118, 75, 162, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* MIND-BLOWING TIMERS */
+    .cosmic-timer {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #ff6b6b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: cosmicRotate 15s linear infinite;
+      box-shadow: 
+        0 0 40px rgba(255, 107, 107, 0.6),
+        0 0 80px rgba(78, 205, 196, 0.4);
+    }
+    
+    @keyframes cosmicRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .timer-core {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* LEGENDARY INGREDIENT CARDS */
+    .ingredient-legend {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ingredient-legend:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(15px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .ingredient-legend.checked {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      transform: scale(1.05);
+      box-shadow: 
+        0 20px 40px rgba(74, 222, 128, 0.4),
+        0 0 30px rgba(34, 197, 94, 0.3);
+    }
+    
+    /* EPIC LANGUAGE SELECTOR */
+    .lang-selector {
+      position: relative;
+    }
+    
+    .lang-mega-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 15px;
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-30px) scale(0.9);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+    
+    .lang-mega-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    
+    .lang-option-mega {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    
+    .lang-option-mega:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(8px);
+    }
+    
+    /* NOTIFICATION SYSTEM - WORLD CLASS */
+    .world-notification {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      padding: 25px 35px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 700;
+      z-index: 20000;
+      transform: translateX(600px) scale(0.8);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-width: 450px;
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .world-notification.show {
+      transform: translateX(0) scale(1);
+    }
+    
+    .world-notification.success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+    }
+    
+    .world-notification.info {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+    }
+    
+    .world-notification.warning {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);
+    }
+    
+    /* RATING STARS - PREMIUM */
+    .premium-star {
+      font-size: 4rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: grayscale(100%) brightness(0.5);
+      position: relative;
+    }
+    
+    .premium-star:hover,
+    .premium-star.active {
+      filter: grayscale(0%) brightness(1);
+      transform: scale(1.3) rotate(15deg);
+      text-shadow: 
+        0 0 30px rgba(255, 193, 7, 0.8),
+        0 0 60px rgba(255, 193, 7, 0.6);
+    }
+    
+    /* LIVE STATS - INCREDIBLE */
+    .live-stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .live-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.8s;
+    }
+    
+    .live-stat-card:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .live-stat-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .mega-pizza-loader {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .mega-pizza-loader::after {
+        font-size: 3rem;
+      }
+      
+      .cosmic-timer {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .timer-core {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .premium-star {
+        font-size: 2.5rem;
+      }
+    }
+    
+    /* SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* FLOATING ELEMENTS */
+    .float-element {
+      animation: floatAnimation 6s ease-in-out infinite;
+    }
+    
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(-10px) rotate(-5deg); }
+      75% { transform: translateY(-15px) rotate(3deg); }
+    }
+    
+    /* PULSE EFFECTS */
+    .pulse-glow {
+      animation: pulseGlowEffect 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlowEffect {
+      0%, 100% { 
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+      }
+      50% { 
+        box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
+        transform: scale(1.02);
+      }
+    }
+  </style>
+</head>
+<body class="cosmic-bg min-h-full">
+  <!-- LEGENDARY SPLASH SCREEN -->
+  <div id="legendarySplash" class="legendary-splash">
+    <div class="text-center">
+      <div class="mega-pizza-loader mb-12"></div>
+      <h1 class="text-6xl md:text-9xl font-black text-white mb-8 orbitron splash-title">
+        🍕 HAMMAD'S EMPIRE
+      </h1>
+      <p class="text-3xl md:text-5xl text-white/95 mb-6 righteous">WORLD'S MOST EPIC PIZZA EXPERIENCE</p>
+      <p class="text-xl md:text-2xl text-white/80 mb-12">Loading the ultimate culinary revolution...</p>
+      
+      <!-- Epic Loading Animation -->
+      <div class="flex justify-center space-x-4 mb-8">
+        <div class="w-6 h-6 bg-white rounded-full animate-bounce"></div>
+        <div class="w-6 h-6 bg-white rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+        <div class="w-6 h-6 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+        <div class="w-6 h-6 bg-white rounded-full animate-bounce" style="animation-delay: 0.3s;"></div>
+        <div class="w-6 h-6 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+      </div>
+      
+      <!-- Floating Countries -->
+      <div class="flex justify-center space-x-8 text-6xl">
+        <span class="float-element">🇮🇹</span>
+        <span class="float-element" style="animation-delay: 1s;">🇺🇸</span>
+        <span class="float-element" style="animation-delay: 2s;">🇫🇷</span>
+        <span class="float-element" style="animation-delay: 3s;">🇯🇵</span>
+        <span class="float-element" style="animation-delay: 4s;">🇧🇷</span>
+        <span class="float-element" style="animation-delay: 5s;">🇮🇳</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN EMPIRE APPLICATION -->
+  <div id="empireApp" class="hidden">
+    <!-- REVOLUTIONARY NAVIGATION -->
+    <nav class="ultra-glass sticky top-0 z-50 pulse-glow">
+      <div class="max-w-8xl mx-auto px-8 py-6">
+        <div class="flex items-center justify-between">
+          <h1 class="text-4xl md:text-5xl font-black text-white orbitron float-element">
+            🍕 HAMMAD'S EMPIRE
+          </h1>
+          
+          <!-- MEGA LANGUAGE SELECTOR -->
+          <div class="lang-selector">
+            <button id="megaLangBtn" class="flex items-center space-x-4 text-white bg-white/20 px-6 py-4 rounded-2xl hover:bg-white/30 transition-all mega-hover">
+              <span id="currentMegaFlag" class="text-3xl">🇺🇸</span>
+              <div class="text-left">
+                <div id="currentMegaLang" class="font-bold text-lg">English</div>
+                <div id="currentMegaCurrency" class="text-sm opacity-80">USD Currency</div>
+              </div>
+              <svg class="w-6 h-6 transition-transform" id="megaLangArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            
+            <div id="megaLangDropdown" class="lang-mega-dropdown">
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="en" data-flag="🇺🇸" data-name="English" data-currency="USD" data-symbol="$">
+                <span class="text-2xl">🇺🇸</span>
+                <div>
+                  <div class="font-bold text-lg">English</div>
+                  <div class="text-sm opacity-80">United States • USD</div>
+                </div>
+              </div>
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="es" data-flag="🇪🇸" data-name="Español" data-currency="EUR" data-symbol="€">
+                <span class="text-2xl">🇪🇸</span>
+                <div>
+                  <div class="font-bold text-lg">Español</div>
+                  <div class="text-sm opacity-80">España • EUR</div>
+                </div>
+              </div>
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="fr" data-flag="🇫🇷" data-name="Français" data-currency="EUR" data-symbol="€">
+                <span class="text-2xl">🇫🇷</span>
+                <div>
+                  <div class="font-bold text-lg">Français</div>
+                  <div class="text-sm opacity-80">France • EUR</div>
+                </div>
+              </div>
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="it" data-flag="🇮🇹" data-name="Italiano" data-currency="EUR" data-symbol="€">
+                <span class="text-2xl">🇮🇹</span>
+                <div>
+                  <div class="font-bold text-lg">Italiano</div>
+                  <div class="text-sm opacity-80">Italia • EUR</div>
+                </div>
+              </div>
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="ja" data-flag="🇯🇵" data-name="日本語" data-currency="JPY" data-symbol="¥">
+                <span class="text-2xl">🇯🇵</span>
+                <div>
+                  <div class="font-bold text-lg">日本語</div>
+                  <div class="text-sm opacity-80">Japan • JPY</div>
+                </div>
+              </div>
+              <div class="lang-option-mega flex items-center space-x-4 p-4 rounded-xl" data-lang="hi" data-flag="🇮🇳" data-name="हिंदी" data-currency="INR" data-symbol="₹">
+                <span class="text-2xl">🇮🇳</span>
+                <div>
+                  <div class="font-bold text-lg">हिंदी</div>
+                  <div class="text-sm opacity-80">India • INR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-8xl mx-auto px-8 py-16">
+      <!-- EPIC HERO SECTION -->
+      <section class="text-center mb-24 scroll-reveal">
+        <h2 id="epicHeroTitle" class="text-7xl md:text-10xl font-black text-white mb-8 righteous pulse-glow">
+          🌍 GLOBAL PIZZA REVOLUTION
+        </h2>
+        <p id="epicHeroDesc" class="text-3xl md:text-4xl text-white/95 mb-16 font-bold">
+          Master the world's most legendary pizza recipes from every continent
+        </p>
+        
+        <!-- LIVE EMPIRE STATISTICS -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto mb-20">
+          <div class="live-stat-card rounded-3xl p-8 mega-hover">
+            <div class="text-5xl font-black text-white mb-3" id="empireChefs">5,847</div>
+            <div class="text-white/90 font-bold" id="empireChefsLabel">👨‍🍳 Master Chefs</div>
+          </div>
+          <div class="live-stat-card rounded-3xl p-8 mega-hover">
+            <div class="text-5xl font-black text-white mb-3" id="empirePizzas">47,293</div>
+            <div class="text-white/90 font-bold" id="empirePizzasLabel">🍕 Pizzas Crafted</div>
+          </div>
+          <div class="live-stat-card rounded-3xl p-8 mega-hover">
+            <div class="text-5xl font-black text-white mb-3" id="empireRating">4.98</div>
+            <div class="text-white/90 font-bold" id="empireRatingLabel">⭐ Global Rating</div>
+          </div>
+          <div class="live-stat-card rounded-3xl p-8 mega-hover">
+            <div class="text-5xl font-black text-white mb-3" id="empireCountries">156</div>
+            <div class="text-white/90 font-bold" id="empireCountriesLabel">🌍 Countries</div>
+          </div>
+          <div class="live-stat-card rounded-3xl p-8 mega-hover">
+            <div class="text-5xl font-black text-white mb-3" id="empireCommunity">2.4M</div>
+            <div class="text-white/90 font-bold" id="empireCommunityLabel">👥 Community</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEGENDARY PIZZA STYLES -->
+      <section class="ultra-glass rounded-4xl p-12 mb-20 scroll-reveal mega-hover">
+        <h3 id="legendaryStylesTitle" class="text-6xl font-black text-white mb-12 text-center righteous">
+          🎯 CHOOSE YOUR LEGENDARY STYLE
+        </h3>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="italy" data-price="15.99" data-time="14" data-temp="900°F">
+            <div class="text-8xl mb-8 float-element">🇮🇹</div>
+            <h4 class="text-4xl font-black text-white mb-6">NEAPOLITAN LEGEND</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Authentic wood-fired masterpiece from the heart of Naples</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">900°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">14 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$15.99</span>
+            </div>
+          </div>
+          
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="usa" data-price="18.75" data-time="18" data-temp="550°F">
+            <div class="text-8xl mb-8 float-element" style="animation-delay: 1s;">🇺🇸</div>
+            <h4 class="text-4xl font-black text-white mb-6">NEW YORK GIANT</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Massive, thin, and perfectly foldable street-style pizza</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">550°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">18 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$18.75</span>
+            </div>
+          </div>
+          
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="chicago" data-price="24.50" data-time="55" data-temp="425°F">
+            <div class="text-8xl mb-8 float-element" style="animation-delay: 2s;">🏙️</div>
+            <h4 class="text-4xl font-black text-white mb-6">CHICAGO FORTRESS</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Deep-dish pizza fortress loaded with premium ingredients</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">425°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">55 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$24.50</span>
+            </div>
+          </div>
+          
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="japan" data-price="21.90" data-time="22" data-temp="475°F">
+            <div class="text-8xl mb-8 float-element" style="animation-delay: 3s;">🇯🇵</div>
+            <h4 class="text-4xl font-black text-white mb-6">TOKYO FUSION</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Revolutionary Japanese-Italian fusion with unique toppings</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">475°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">22 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$21.90</span>
+            </div>
+          </div>
+          
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="brazil" data-price="17.25" data-time="25" data-temp="500°F">
+            <div class="text-8xl mb-8 float-element" style="animation-delay: 4s;">🇧🇷</div>
+            <h4 class="text-4xl font-black text-white mb-6">CARNIVAL FIESTA</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Tropical paradise with sweet and savory combinations</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">500°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">25 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$17.25</span>
+            </div>
+          </div>
+          
+          <div class="country-masterpiece rounded-3xl p-10 text-center" data-country="india" data-price="16.40" data-time="20" data-temp="525°F">
+            <div class="text-8xl mb-8 float-element" style="animation-delay: 5s;">🇮🇳</div>
+            <h4 class="text-4xl font-black text-white mb-6">SPICE EMPIRE</h4>
+            <p class="text-xl text-white/90 mb-8 font-semibold">Tandoori and curry-inspired flavors with aromatic spices</p>
+            <div class="grid grid-cols-2 gap-4 text-white/80 font-bold">
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>🔥</span>
+                <span class="pizza-temp">525°F</span>
+              </div>
+              <div class="flex items-center justify-center space-x-2 bg-white/10 rounded-xl p-3">
+                <span>⏱️</span>
+                <span class="pizza-time">20 min</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <span class="text-3xl font-black text-white pizza-price">$16.40</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVOLUTIONARY PORTION CALCULATOR -->
+      <section class="ultra-glass rounded-4xl p-12 mb-20 scroll-reveal mega-hover">
+        <h3 id="revolutionaryPortionTitle" class="text-6xl font-black text-white mb-12 text-center righteous">
+          🧮 REVOLUTIONARY PORTION CALCULATOR
+        </h3>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-20">
+          <button id="decreaseRevolutionary" class="revolution-btn w-24 h-24 rounded-full text-5xl font-black text-white mega-hover">
+            −
+          </button>
+          
+          <div class="text-center">
+            <div class="text-9xl font-black text-white mb-6 pulse-glow" id="revolutionaryCount">8</div>
+            <div class="text-3xl text-white/90 font-bold" id="revolutionaryLabel">people</div>
+          </div>
+          
+          <button id="increaseRevolutionary" class="revolution-btn w-24 h-24 rounded-full text-5xl font-black text-white mega-hover">
+            +
+          </button>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8 mt-16">
+          <div class="ultra-glass rounded-3xl p-10 text-center mega-hover">
+            <div class="text-6xl mb-6">🍕</div>
+            <div class="text-5xl font-black text-white mb-4" id="revolutionaryPizzas">3</div>
+            <div class="text-white/90 font-bold text-xl" id="revolutionaryPizzasLabel">Epic Pizzas</div>
+          </div>
+          <div class="ultra-glass rounded-3xl p-10 text-center mega-hover">
+            <div class="text-6xl mb-6">💰</div>
+            <div class="text-5xl font-black text-white mb-4" id="revolutionaryTotal">$47.97</div>
+            <div class="text-white/90 font-bold text-xl" id="revolutionaryTotalLabel">Total Investment</div>
+          </div>
+          <div class="ultra-glass rounded-3xl p-10 text-center mega-hover">
+            <div class="text-6xl mb-6">⏰</div>
+            <div class="text-5xl font-black text-white mb-4" id="revolutionaryTime">3h 15m</div>
+            <div class="text-white/90 font-bold text-xl" id="revolutionaryTimeLabel">Total Time</div>
+          </div>
+          <div class="ultra-glass rounded-3xl p-10 text-center mega-hover">
+            <div class="text-6xl mb-6">🔥</div>
+            <div class="text-5xl font-black text-white mb-4" id="revolutionaryCalories">2,840</div>
+            <div class="text-white/90 font-bold text-xl" id="revolutionaryCaloriesLabel">Total Calories</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREMIUM INGREDIENTS EMPIRE -->
+      <section class="ultra-glass rounded-4xl p-12 mb-20 scroll-reveal mega-hover">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+          <h3 id="premiumIngredientsTitle" class="text-6xl font-black text-white righteous mb-8 md:mb-0">
+            🥘 PREMIUM INGREDIENTS EMPIRE
+          </h3>
+          <div class="flex space-x-6">
+            <button id="selectAllPremium" class="revolution-btn px-10 py-5 rounded-2xl text-white font-black text-xl mega-hover">
+              <span id="selectAllPremiumLabel">✓ SELECT ALL</span>
+            </button>
+            <button id="clearAllPremium" class="bg-red-600 hover:bg-red-700 px-10 py-5 rounded-2xl text-white font-black text-xl transition-all mega-hover">
+              <span id="clearAllPremiumLabel">✗ CLEAR ALL</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8" id="premiumIngredientsList">
+          <!-- Ingredients will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- COSMIC KITCHEN TIMERS -->
+      <section class="ultra-glass rounded-4xl p-12 mb-20 scroll-reveal mega-hover">
+        <h3 id="cosmicTimersTitle" class="text-6xl font-black text-white mb-12 text-center righteous">
+          ⏰ COSMIC KITCHEN TIMERS
+        </h3>
+        
+        <div class="grid md:grid-cols-3 gap-16">
+          <div class="text-center">
+            <div class="cosmic-timer mx-auto mb-8">
+              <div class="timer-core">
+                <div class="text-3xl font-black text-white orbitron" id="cosmicPrepTimer">12:00</div>
+                <div class="text-sm text-white/80 font-bold">PREP</div>
+              </div>
+            </div>
+            <h4 id="cosmicPrepTitle" class="text-3xl font-black text-white mb-6">🥄 PREPARATION</h4>
+            <button id="cosmicPrepBtn" class="revolution-btn px-10 py-4 rounded-2xl text-white font-black text-lg mega-hover">
+              <span id="startCosmicPrepLabel">START PREP</span>
+            </button>
+          </div>
+          
+          <div class="text-center">
+            <div class="cosmic-timer mx-auto mb-8">
+              <div class="timer-core">
+                <div class="text-3xl font-black text-white orbitron" id="cosmicRiseTimer">150:00</div>
+                <div class="text-sm text-white/80 font-bold">RISE</div>
+              </div>
+            </div>
+            <h4 id="cosmicRiseTitle" class="text-3xl font-black text-white mb-6">🌾 DOUGH RISING</h4>
+            <button id="cosmicRiseBtn" class="revolution-btn px-10 py-4 rounded-2xl text-white font-black text-lg mega-hover">
+              <span id="startCosmicRiseLabel">START RISING</span>
+            </button>
+          </div>
+          
+          <div class="text-center">
+            <div class="cosmic-timer mx-auto mb-8">
+              <div class="timer-core">
+                <div class="text-3xl font-black text-white orbitron" id="cosmicBakeTimer">18:00</div>
+                <div class="text-sm text-white/80 font-bold">BAKE</div>
+              </div>
+            </div>
+            <h4 id="cosmicBakeTitle" class="text-3xl font-black text-white mb-6">🔥 BAKING</h4>
+            <button id="cosmicBakeBtn" class="revolution-btn px-10 py-4 rounded-2xl text-white font-black text-lg mega-hover">
+              <span id="startCosmicBakeLabel">START BAKING</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORLD-CLASS RATING SYSTEM -->
+      <section class="ultra-glass rounded-4xl p-12 mb-20 scroll-reveal mega-hover">
+        <h3 id="worldClassRatingTitle" class="text-6xl font-black text-white mb-12 text-center righteous">
+          ⭐ WORLD-CLASS RATING SYSTEM
+        </h3>
+        
+        <div class="text-center mb-12">
+          <div class="flex justify-center space-x-6 mb-10" id="premiumStarRating">
+            <span class="premium-star" data-rating="1">⭐</span>
+            <span class="premium-star" data-rating="2">⭐</span>
+            <span class="premium-star" data-rating="3">⭐</span>
+            <span class="premium-star" data-rating="4">⭐</span>
+            <span class="premium-star" data-rating="5">⭐</span>
+          </div>
+          <p id="worldClassRatingMessage" class="text-3xl text-white mb-10 font-bold">Share your legendary pizza journey with the world!</p>
+          
+          <div class="max-w-3xl mx-auto">
+            <textarea id="worldClassReviewInput" 
+                      class="w-full bg-white/10 text-white placeholder-white/70 border-2 border-white/30 rounded-3xl p-8 resize-none focus:outline-none focus:ring-4 focus:ring-white/50 focus:border-transparent text-xl" 
+                      rows="6" 
+                      placeholder="Tell the world about your incredible pizza experience..."></textarea>
+            <button id="submitWorldClassReview" class="revolution-btn mt-8 px-12 py-6 rounded-3xl text-white font-black text-2xl mega-hover">
+              <span id="submitWorldClassReviewLabel">🚀 SHARE WITH WORLD</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- LEGENDARY COMMUNITY REVIEWS -->
+        <div class="grid md:grid-cols-2 gap-10 mt-16">
+          <div class="ultra-glass rounded-3xl p-8 mega-hover">
+            <div class="flex items-center space-x-6 mb-6">
+              <div class="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-black text-2xl">
+                MR
+              </div>
+              <div>
+                <div class="text-white font-black text-2xl">Marco Rossi 🇮🇹</div>
+                <div class="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-white/95 text-xl leading-relaxed font-semibold">
+              "INCREDIBILE! This is exactly like my nonna's recipe but even better! The step-by-step guidance is absolutely perfetto! My entire famiglia is obsessed!"
+            </p>
+            <div class="mt-6 text-white/70 font-bold">2 hours ago • Roma, Italia</div>
+          </div>
+          
+          <div class="ultra-glass rounded-3xl p-8 mega-hover">
+            <div class="flex items-center space-x-6 mb-6">
+              <div class="w-20 h-20 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center text-white font-black text-2xl">
+                EJ
+              </div>
+              <div>
+                <div class="text-white font-black text-2xl">Emily Johnson 🇺🇸</div>
+                <div class="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-white/95 text-xl leading-relaxed font-semibold">
+              "MIND-BLOWING! The timers are genius and the results are restaurant-quality! My friends think I hired a professional chef. Making this every weekend now!"
+            </p>
+            <div class="mt-6 text-white/70 font-bold">5 hours ago • New York, USA</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- EPIC FOOTER -->
+    <footer class="ultra-glass border-t-4 border-white/30 py-16">
+      <div class="max-w-8xl mx-auto px-8 text-center">
+        <h4 class="text-5xl font-black text-white mb-8 orbitron">🍕 HAMMAD'S PIZZA EMPIRE</h4>
+        <p class="text-2xl text-white/90 mb-8 font-bold">Connecting pizza legends across 156 countries, one epic slice at a time</p>
+        <div class="flex flex-wrap justify-center items-center space-x-8 text-white/80 text-lg font-semibold">
+          <span>© 2024 Pizza Empire</span>
+          <span>•</span>
+          <span>Made with ❤️ and legendary cheese</span>
+          <span>•</span>
+          <span>2.4M+ Happy Pizza Masters</span>
+          <span>•</span>
+          <span>156 Countries Served</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- WORLD-CLASS NOTIFICATION CONTAINER -->
+  <div id="worldNotificationContainer"></div>
+
+  <script>
+    // EMPIRE GLOBAL STATE
+    let empireLanguage = 'en';
+    let empireCurrency = 'USD';
+    let empireCurrencySymbol = '$';
+    let empireSelectedCountry = 'italy';
+    let empirePortions = 8;
+    let empireRating = 0;
+    let empireBasePrice = 15.99;
+    let empireBaseTime = 14;
+    let empireBaseTemp = '900°F';
+
+    // REVOLUTIONARY CURRENCY RATES
+    const empireCurrencyRates = {
+      USD: { symbol: '$', rate: 1 },
+      EUR: { symbol: '€', rate: 0.85 },
+      JPY: { symbol: '¥', rate: 110 },
+      INR: { symbol: '₹', rate: 74 }
+    };
+
+    // LEGENDARY TRANSLATIONS
+    const empireTranslations = {
+      en: {
+        epicHeroTitle: "🌍 GLOBAL PIZZA REVOLUTION",
+        epicHeroDesc: "Master the world's most legendary pizza recipes from every continent",
+        empireChefsLabel: "👨‍🍳 Master Chefs",
+        empirePizzasLabel: "🍕 Pizzas Crafted",
+        empireRatingLabel: "⭐ Global Rating",
+        empireCountriesLabel: "🌍 Countries",
+        empireCommunityLabel: "👥 Community",
+        legendaryStylesTitle: "🎯 CHOOSE YOUR LEGENDARY STYLE",
+        revolutionaryPortionTitle: "🧮 REVOLUTIONARY PORTION CALCULATOR",
+        revolutionaryLabel: "people",
+        revolutionaryPizzasLabel: "Epic Pizzas",
+        revolutionaryTotalLabel: "Total Investment",
+        revolutionaryTimeLabel: "Total Time",
+        revolutionaryCaloriesLabel: "Total Calories",
+        premiumIngredientsTitle: "🥘 PREMIUM INGREDIENTS EMPIRE",
+        selectAllPremiumLabel: "✓ SELECT ALL",
+        clearAllPremiumLabel: "✗ CLEAR ALL",
+        cosmicTimersTitle: "⏰ COSMIC KITCHEN TIMERS",
+        cosmicPrepTitle: "🥄 PREPARATION",
+        cosmicRiseTitle: "🌾 DOUGH RISING",
+        cosmicBakeTitle: "🔥 BAKING",
+        startCosmicPrepLabel: "START PREP",
+        startCosmicRiseLabel: "START RISING",
+        startCosmicBakeLabel: "START BAKING",
+        worldClassRatingTitle: "⭐ WORLD-CLASS RATING SYSTEM",
+        worldClassRatingMessage: "Share your legendary pizza journey with the world!",
+        submitWorldClassReviewLabel: "🚀 SHARE WITH WORLD"
+      },
+      es: {
+        epicHeroTitle: "🌍 REVOLUCIÓN GLOBAL DE PIZZA",
+        epicHeroDesc: "Domina las recetas de pizza más legendarias del mundo de cada continente",
+        empireChefsLabel: "👨‍🍳 Chefs Maestros",
+        empirePizzasLabel: "🍕 Pizzas Creadas",
+        empireRatingLabel: "⭐ Calificación Global",
+        empireCountriesLabel: "🌍 Países",
+        empireCommunityLabel: "👥 Comunidad",
+        legendaryStylesTitle: "🎯 ELIGE TU ESTILO LEGENDARIO",
+        revolutionaryPortionTitle: "🧮 CALCULADORA REVOLUCIONARIA DE PORCIONES",
+        revolutionaryLabel: "personas",
+        revolutionaryPizzasLabel: "Pizzas Épicas",
+        revolutionaryTotalLabel: "Inversión Total",
+        revolutionaryTimeLabel: "Tiempo Total",
+        revolutionaryCaloriesLabel: "Calorías Totales",
+        premiumIngredientsTitle: "🥘 IMPERIO DE INGREDIENTES PREMIUM",
+        selectAllPremiumLabel: "✓ SELECCIONAR TODO",
+        clearAllPremiumLabel: "✗ LIMPIAR TODO",
+        cosmicTimersTitle: "⏰ TEMPORIZADORES CÓSMICOS",
+        cosmicPrepTitle: "🥄 PREPARACIÓN",
+        cosmicRiseTitle: "🌾 FERMENTACIÓN",
+        cosmicBakeTitle: "🔥 HORNEADO",
+        startCosmicPrepLabel: "INICIAR PREP",
+        startCosmicRiseLabel: "INICIAR FERMENTACIÓN",
+        startCosmicBakeLabel: "INICIAR HORNEADO",
+        worldClassRatingTitle: "⭐ SISTEMA DE CALIFICACIÓN MUNDIAL",
+        worldClassRatingMessage: "¡Comparte tu legendario viaje de pizza con el mundo!",
+        submitWorldClassReviewLabel: "🚀 COMPARTIR CON MUNDO"
+      },
+      fr: {
+        epicHeroTitle: "🌍 RÉVOLUTION PIZZA MONDIALE",
+        epicHeroDesc: "Maîtrisez les recettes de pizza les plus légendaires du monde de chaque continent",
+        empireChefsLabel: "👨‍🍳 Chefs Maîtres",
+        empirePizzasLabel: "🍕 Pizzas Créées",
+        empireRatingLabel: "⭐ Note Mondiale",
+        empireCountriesLabel: "🌍 Pays",
+        empireCommunityLabel: "👥 Communauté",
+        legendaryStylesTitle: "🎯 CHOISISSEZ VOTRE STYLE LÉGENDAIRE",
+        revolutionaryPortionTitle: "🧮 CALCULATEUR RÉVOLUTIONNAIRE DE PORTIONS",
+        revolutionaryLabel: "personnes",
+        revolutionaryPizzasLabel: "Pizzas Épiques",
+        revolutionaryTotalLabel: "Investissement Total",
+        revolutionaryTimeLabel: "Temps Total",
+        revolutionaryCaloriesLabel: "Calories Totales",
+        premiumIngredientsTitle: "🥘 EMPIRE D'INGRÉDIENTS PREMIUM",
+        selectAllPremiumLabel: "✓ TOUT SÉLECTIONNER",
+        clearAllPremiumLabel: "✗ TOUT EFFACER",
+        cosmicTimersTitle: "⏰ MINUTEURS COSMIQUES",
+        cosmicPrepTitle: "🥄 PRÉPARATION",
+        cosmicRiseTitle: "🌾 LEVÉE PÂTE",
+        cosmicBakeTitle: "🔥 CUISSON",
+        startCosmicPrepLabel: "COMMENCER PREP",
+        startCosmicRiseLabel: "COMMENCER LEVÉE",
+        startCosmicBakeLabel: "COMMENCER CUISSON",
+        worldClassRatingTitle: "⭐ SYSTÈME DE NOTATION MONDIAL",
+        worldClassRatingMessage: "Partagez votre voyage pizza légendaire avec le monde!",
+        submitWorldClassReviewLabel: "🚀 PARTAGER AVEC MONDE"
+      },
+      it: {
+        epicHeroTitle: "🌍 RIVOLUZIONE PIZZA GLOBALE",
+        epicHeroDesc: "Padroneggia le ricette di pizza più leggendarie del mondo da ogni continente",
+        empireChefsLabel: "👨‍🍳 Chef Maestri",
+        empirePizzasLabel: "🍕 Pizze Create",
+        empireRatingLabel: "⭐ Valutazione Globale",
+        empireCountriesLabel: "🌍 Paesi",
+        empireCommunityLabel: "👥 Comunità",
+        legendaryStylesTitle: "🎯 SCEGLI IL TUO STILE LEGGENDARIO",
+        revolutionaryPortionTitle: "🧮 CALCOLATORE RIVOLUZIONARIO PORZIONI",
+        revolutionaryLabel: "persone",
+        revolutionaryPizzasLabel: "Pizze Epiche",
+        revolutionaryTotalLabel: "Investimento Totale",
+        revolutionaryTimeLabel: "Tempo Totale",
+        revolutionaryCaloriesLabel: "Calorie Totali",
+        premiumIngredientsTitle: "🥘 IMPERO INGREDIENTI PREMIUM",
+        selectAllPremiumLabel: "✓ SELEZIONA TUTTO",
+        clearAllPremiumLabel: "✗ CANCELLA TUTTO",
+        cosmicTimersTitle: "⏰ TIMER COSMICI",
+        cosmicPrepTitle: "🥄 PREPARAZIONE",
+        cosmicRiseTitle: "🌾 LIEVITAZIONE",
+        cosmicBakeTitle: "🔥 COTTURA",
+        startCosmicPrepLabel: "INIZIA PREP",
+        startCosmicRiseLabel: "INIZIA LIEVITAZIONE",
+        startCosmicBakeLabel: "INIZIA COTTURA",
+        worldClassRatingTitle: "⭐ SISTEMA VALUTAZIONE MONDIALE",
+        worldClassRatingMessage: "Condividi il tuo leggendario viaggio pizza con il mondo!",
+        submitWorldClassReviewLabel: "🚀 CONDIVIDI CON MONDO"
+      },
+      ja: {
+        epicHeroTitle: "🌍 グローバルピザ革命",
+        epicHeroDesc: "各大陸から世界で最も伝説的なピザレシピをマスターしよう",
+        empireChefsLabel: "👨‍🍳 マスターシェフ",
+        empirePizzasLabel: "🍕 作られたピザ",
+        empireRatingLabel: "⭐ グローバル評価",
+        empireCountriesLabel: "🌍 国",
+        empireCommunityLabel: "👥 コミュニティ",
+        legendaryStylesTitle: "🎯 伝説のスタイルを選択",
+        revolutionaryPortionTitle: "🧮 革命的ポーション計算機",
+        revolutionaryLabel: "人",
+        revolutionaryPizzasLabel: "エピックピザ",
+        revolutionaryTotalLabel: "総投資",
+        revolutionaryTimeLabel: "総時間",
+        revolutionaryCaloriesLabel: "総カロリー",
+        premiumIngredientsTitle: "🥘 プレミアム食材帝国",
+        selectAllPremiumLabel: "✓ すべて選択",
+        clearAllPremiumLabel: "✗ すべてクリア",
+        cosmicTimersTitle: "⏰ コズミックタイマー",
+        cosmicPrepTitle: "🥄 準備",
+        cosmicRiseTitle: "🌾 生地発酵",
+        cosmicBakeTitle: "🔥 焼き",
+        startCosmicPrepLabel: "準備開始",
+        startCosmicRiseLabel: "発酵開始",
+        startCosmicBakeLabel: "焼き開始",
+        worldClassRatingTitle: "⭐ ワールドクラス評価システム",
+        worldClassRatingMessage: "あなたの伝説のピザの旅を世界と共有しよう！",
+        submitWorldClassReviewLabel: "🚀 世界と共有"
+      },
+      hi: {
+        epicHeroTitle: "🌍 ग्लोबल पिज्जा क्रांति",
+        epicHeroDesc: "हर महाद्वीप से दुनिया की सबसे महान पिज्जा रेसिपी में महारत हासिल करें",
+        empireChefsLabel: "👨‍🍳 मास्टर शेफ",
+        empirePizzasLabel: "🍕 बनाए गए पिज्जा",
+        empireRatingLabel: "⭐ ग्लोबल रेटिंग",
+        empireCountriesLabel: "🌍 देश",
+        empireCommunityLabel: "👥 समुदाय",
+        legendaryStylesTitle: "🎯 अपनी महान शैली चुनें",
+        revolutionaryPortionTitle: "🧮 क्रांतिकारी पोर्शन कैलकुलेटर",
+        revolutionaryLabel: "लोग",
+        revolutionaryPizzasLabel: "महाकाव्य पिज्जा",
+        revolutionaryTotalLabel: "कुल निवेश",
+        revolutionaryTimeLabel: "कुल समय",
+        revolutionaryCaloriesLabel: "कुल कैलोरी",
+        premiumIngredientsTitle: "🥘 प्रीमियम सामग्री साम्राज्य",
+        selectAllPremiumLabel: "✓ सभी चुनें",
+        clearAllPremiumLabel: "✗ सभी साफ करें",
+        cosmicTimersTitle: "⏰ कॉस्मिक किचन टाइमर",
+        cosmicPrepTitle: "🥄 तैयारी",
+        cosmicRiseTitle: "🌾 आटा उठना",
+        cosmicBakeTitle: "🔥 बेकिंग",
+        startCosmicPrepLabel: "तैयारी शुरू करें",
+        startCosmicRiseLabel: "उठना शुरू करें",
+        startCosmicBakeLabel: "बेकिंग शुरू करें",
+        worldClassRatingTitle: "⭐ विश्व स्तरीय रेटिंग सिस्टम",
+        worldClassRatingMessage: "अपनी महान पिज्जा यात्रा को दुनिया के साथ साझा करें!",
+        submitWorldClassReviewLabel: "🚀 दुनिया के साथ साझा करें"
+      }
+    };
+
+    // LEGENDARY INGREDIENTS DATA
+    const empireIngredientsData = [
+      { emoji: '💧', name: 'Premium Warm Water', amount: 2, unit: 'cups', cost: 0.15 },
+      { emoji: '🦠', name: 'Active Dry Yeast', amount: 3, unit: 'tsp', cost: 1.80 },
+      { emoji: '🌾', name: 'Italian 00 Flour', amount: 5, unit: 'cups', cost: 5.50 },
+      { emoji: '🧂', name: 'Sea Salt', amount: 2, unit: 'tsp', cost: 0.45 },
+      { emoji: '🫒', name: 'Extra Virgin Olive Oil', amount: 4, unit: 'tbsp', cost: 4.20 },
+      { emoji: '🍅', name: 'San Marzano Tomatoes', amount: 2, unit: 'cans', cost: 8.90 },
+      { emoji: '🧀', name: 'Buffalo Mozzarella', amount: 12, unit: 'oz', cost: 12.50 },
+      { emoji: '🌿', name: 'Fresh Basil', amount: 1, unit: 'cup', cost: 3.75 },
+      { emoji: '🧄', name: 'Fresh Garlic', amount: 6, unit: 'cloves', cost: 1.25 },
+      { emoji: '🌶️', name: 'Red Pepper Flakes', amount: 1, unit: 'tsp', cost: 0.85 }
+    ];
+
+    // COSMIC TIMER STATES
+    const empireTimerStates = {
+      prep: { active: false, seconds: 720, original: 720, interval: null },
+      rise: { active: false, seconds: 9000, original: 9000, interval: null },
+      bake: { active: false, seconds: 1080, original: 1080, interval: null }
+    };
+
+    // INITIALIZE EMPIRE AFTER SPLASH
+    setTimeout(() => {
+      document.getElementById('legendarySplash').style.display = 'none';
+      document.getElementById('empireApp').classList.remove('hidden');
+      initializeEmpire();
+    }, 5000);
+
+    function initializeEmpire() {
+      setupEmpireEventListeners();
+      generateEmpireIngredientsList();
+      updateEmpireCalculations();
+      setupScrollReveal();
+      showEmpireNotification('🎉 WELCOME TO THE MOST EPIC PIZZA EMPIRE! Ready to create legendary pizzas?', 'success', 6000);
+      
+      // Auto-update live empire stats
+      setInterval(updateEmpireLiveStats, 4000);
+    }
+
+    function setupEmpireEventListeners() {
+      // Language selector
+      document.getElementById('megaLangBtn').addEventListener('click', toggleEmpireLanguageDropdown);
+      document.querySelectorAll('.lang-option-mega').forEach(option => {
+        option.addEventListener('click', changeEmpireLanguage);
+      });
+
+      // Country selection
+      document.querySelectorAll('.country-masterpiece').forEach(selector => {
+        selector.addEventListener('click', selectEmpireCountry);
+      });
+
+      // Portion calculator
+      document.getElementById('increaseRevolutionary').addEventListener('click', () => adjustEmpirePortions(1));
+      document.getElementById('decreaseRevolutionary').addEventListener('click', () => adjustEmpirePortions(-1));
+
+      // Ingredient controls
+      document.getElementById('selectAllPremium').addEventListener('click', selectAllEmpireIngredients);
+      document.getElementById('clearAllPremium').addEventListener('click', clearAllEmpireIngredients);
+
+      // Timer controls
+      document.getElementById('cosmicPrepBtn').addEventListener('click', () => toggleEmpireTimer('prep'));
+      document.getElementById('cosmicRiseBtn').addEventListener('click', () => toggleEmpireTimer('rise'));
+      document.getElementById('cosmicBakeBtn').addEventListener('click', () => toggleEmpireTimer('bake'));
+
+      // Rating system
+      document.querySelectorAll('.premium-star').forEach(star => {
+        star.addEventListener('click', setEmpireRating);
+        star.addEventListener('mouseenter', highlightEmpireStars);
+      });
+      document.getElementById('premiumStarRating').addEventListener('mouseleave', resetEmpireStarHighlight);
+
+      // Review submission
+      document.getElementById('submitWorldClassReview').addEventListener('click', submitEmpireReview);
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', closeEmpireDropdownsOnOutsideClick);
+    }
+
+    function toggleEmpireLanguageDropdown() {
+      const dropdown = document.getElementById('megaLangDropdown');
+      const arrow = document.getElementById('megaLangArrow');
+      
+      dropdown.classList.toggle('active');
+      arrow.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    function changeEmpireLanguage(e) {
+      const lang = e.currentTarget.dataset.lang;
+      const flag = e.currentTarget.dataset.flag;
+      const name = e.currentTarget.dataset.name;
+      const currency = e.currentTarget.dataset.currency;
+      const symbol = e.currentTarget.dataset.symbol;
+
+      empireLanguage = lang;
+      empireCurrency = currency;
+      empireCurrencySymbol = symbol;
+
+      document.getElementById('currentMegaFlag').textContent = flag;
+      document.getElementById('currentMegaLang').textContent = name;
+      document.getElementById('currentMegaCurrency').textContent = `${currency} Currency`;
+      document.getElementById('megaLangDropdown').classList.remove('active');
+      document.getElementById('megaLangArrow').style.transform = 'rotate(0deg)';
+
+      updateEmpireLanguage();
+      updateEmpireCalculations();
+      
+      showEmpireNotification(`🌍 LANGUAGE CHANGED TO ${name.toUpperCase()}! CURRENCY UPDATED TO ${currency}!`, 'success');
+    }
+
+    function updateEmpireLanguage() {
+      const t = empireTranslations[empireLanguage];
+      
+      // Update all translatable elements
+      Object.keys(t).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+          element.textContent = t[key];
+        }
+      });
+    }
+
+    function selectEmpireCountry(e) {
+      // Remove selection from all countries
+      document.querySelectorAll('.country-masterpiece').forEach(selector => {
+        selector.classList.remove('selected');
+      });
+
+      // Select clicked country
+      e.currentTarget.classList.add('selected');
+      
+      empireSelectedCountry = e.currentTarget.dataset.country;
+      empireBasePrice = parseFloat(e.currentTarget.dataset.price);
+      empireBaseTime = parseInt(e.currentTarget.dataset.time);
+      empireBaseTemp = e.currentTarget.dataset.temp;
+
+      updateEmpireCalculations();
+      
+      const countryName = e.currentTarget.querySelector('h4').textContent;
+      showEmpireNotification(`🍕 ${countryName} SELECTED! LEGENDARY CHOICE FOR AN EPIC PIZZA EXPERIENCE!`, 'success');
+    }
+
+    function adjustEmpirePortions(change) {
+      const newPortions = empirePortions + change;
+      if (newPortions >= 1 && newPortions <= 100) {
+        empirePortions = newPortions;
+        updateEmpireCalculations();
+        showEmpireNotification(`👥 RECIPE REVOLUTIONIZED FOR ${empirePortions} PEOPLE! ALL INGREDIENTS PERFECTLY SCALED!`, 'info');
+      }
+    }
+
+    function updateEmpireCalculations() {
+      const currency = empireCurrencyRates[empireCurrency];
+      const portionMultiplier = empirePortions / 8;
+      
+      // Update portion display
+      document.getElementById('revolutionaryCount').textContent = empirePortions;
+      
+      // Calculate pizzas needed (1 pizza serves 2.5 people)
+      const pizzasNeeded = Math.ceil(empirePortions / 2.5);
+      document.getElementById('revolutionaryPizzas').textContent = pizzasNeeded;
+      
+      // Calculate total price
+      const totalPrice = (empireBasePrice * pizzasNeeded * currency.rate).toFixed(2);
+      document.getElementById('revolutionaryTotal').textContent = `${currency.symbol}${totalPrice}`;
+      
+      // Calculate cooking time
+      const totalMinutes = Math.round(180 + (empireBaseTime * pizzasNeeded));
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+      document.getElementById('revolutionaryTime').textContent = `${hours}h ${minutes}m`;
+      
+      // Calculate calories (approximately 355 calories per slice, 8 slices per pizza)
+      const totalCalories = Math.round(355 * 8 * pizzasNeeded);
+      document.getElementById('revolutionaryCalories').textContent = totalCalories.toLocaleString();
+      
+      // Update all price displays
+      updateEmpirePriceDisplays();
+      updateEmpireIngredientAmounts();
+    }
+
+    function updateEmpirePriceDisplays() {
+      const currency = empireCurrencyRates[empireCurrency];
+      
+      document.querySelectorAll('.pizza-price').forEach(display => {
+        const card = display.closest('.country-masterpiece');
+        if (card) {
+          const price = parseFloat(card.dataset.price);
+          const convertedPrice = (price * currency.rate).toFixed(2);
+          display.textContent = `${currency.symbol}${convertedPrice}`;
+        }
+      });
+    }
+
+    function generateEmpireIngredientsList() {
+      const container = document.getElementById('premiumIngredientsList');
+      container.innerHTML = '';
+      
+      empireIngredientsData.forEach((ingredient, index) => {
+        const ingredientCard = document.createElement('div');
+        ingredientCard.className = 'ingredient-legend ultra-glass rounded-3xl p-8 mega-hover';
+        ingredientCard.innerHTML = `
+          <div class="flex items-center space-x-6">
+            <input type="checkbox" class="w-8 h-8 rounded-xl accent-blue-500" id="empire-ingredient-${index}">
+            <div class="flex-1">
+              <div class="flex items-center space-x-4 mb-3">
+                <span class="text-4xl">${ingredient.emoji}</span>
+                <span class="text-white text-2xl font-black">
+                  <span class="empire-ingredient-amount">${ingredient.amount}</span> ${ingredient.unit} ${ingredient.name}
+                </span>
+              </div>
+              <div class="text-white/80 text-lg font-semibold">Premium quality • Restaurant grade</div>
+              <div class="text-white/60 text-lg font-bold empire-ingredient-cost">💰 Cost: $${ingredient.cost.toFixed(2)}</div>
+            </div>
+          </div>
+        `;
+        
+        // Add click handler
+        ingredientCard.addEventListener('click', (e) => {
+          if (e.target.type !== 'checkbox') {
+            const checkbox = ingredientCard.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+          }
+          
+          const checkbox = ingredientCard.querySelector('input[type="checkbox"]');
+          if (checkbox.checked) {
+            ingredientCard.classList.add('checked');
+          } else {
+            ingredientCard.classList.remove('checked');
+          }
+        });
+        
+        container.appendChild(ingredientCard);
+      });
+    }
+
+    function updateEmpireIngredientAmounts() {
+      const currency = empireCurrencyRates[empireCurrency];
+      const multiplier = empirePortions / 8;
+      
+      document.querySelectorAll('.empire-ingredient-amount').forEach((element, index) => {
+        if (index < empireIngredientsData.length) {
+          const newAmount = (empireIngredientsData[index].amount * multiplier).toFixed(1).replace(/\.0$/, '');
+          element.textContent = newAmount;
+        }
+      });
+      
+      document.querySelectorAll('.empire-ingredient-cost').forEach((element, index) => {
+        if (index < empireIngredientsData.length) {
+          const newCost = (empireIngredientsData[index].cost * multiplier * currency.rate).toFixed(2);
+          element.textContent = `💰 Cost: ${currency.symbol}${newCost}`;
+        }
+      });
+    }
+
+    function selectAllEmpireIngredients() {
+      document.querySelectorAll('.ingredient-legend input[type="checkbox"]').forEach((checkbox, index) => {
+        setTimeout(() => {
+          checkbox.checked = true;
+          checkbox.closest('.ingredient-legend').classList.add('checked');
+        }, index * 150);
+      });
+      
+      setTimeout(() => {
+        showEmpireNotification('✅ ALL PREMIUM INGREDIENTS SELECTED! YOU\'RE READY TO CREATE CULINARY MAGIC!', 'success');
+      }, 1500);
+    }
+
+    function clearAllEmpireIngredients() {
+      document.querySelectorAll('.ingredient-legend input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+        checkbox.closest('.ingredient-legend').classList.remove('checked');
+      });
+      showEmpireNotification('🔄 INGREDIENT LIST CLEARED! START FRESH WITH YOUR LEGENDARY SELECTION!', 'info');
+    }
+
+    function toggleEmpireTimer(type) {
+      const timer = empireTimerStates[type];
+      const button = document.getElementById(`cosmic${type.charAt(0).toUpperCase() + type.slice(1)}Btn`);
+      const display = document.getElementById(`cosmic${type.charAt(0).toUpperCase() + type.slice(1)}Timer`);
+      
+      if (timer.active) {
+        // Stop timer
+        clearInterval(timer.interval);
+        timer.active = false;
+        timer.seconds = timer.original;
+        display.textContent = formatEmpireTime(timer.seconds);
+        
+        const labels = {
+          prep: empireTranslations[empireLanguage]?.startCosmicPrepLabel || 'START PREP',
+          rise: empireTranslations[empireLanguage]?.startCosmicRiseLabel || 'START RISING',
+          bake: empireTranslations[empireLanguage]?.startCosmicBakeLabel || 'START BAKING'
+        };
+        
+        button.querySelector('span').textContent = labels[type];
+        button.style.background = '';
+        
+        showEmpireNotification(`⏹️ ${type.toUpperCase()} TIMER STOPPED!`, 'info');
+      } else {
+        // Start timer
+        timer.active = true;
+        button.querySelector('span').textContent = `STOP ${type.toUpperCase()}`;
+        button.style.background = 'rgba(255, 255, 255, 0.2)';
+        
+        timer.interval = setInterval(() => {
+          timer.seconds--;
+          display.textContent = formatEmpireTime(timer.seconds);
+          
+          // Epic warning flash for last 60 seconds
+          if (timer.seconds <= 60 && timer.seconds > 0) {
+            display.style.color = timer.seconds % 2 === 0 ? '#ef4444' : '#ffffff';
+          }
+          
+          if (timer.seconds <= 0) {
+            clearInterval(timer.interval);
+            timer.active = false;
+            timer.seconds = timer.original;
+            display.style.color = '#ffffff';
+            
+            const labels = {
+              prep: empireTranslations[empireLanguage]?.startCosmicPrepLabel || 'START PREP',
+              rise: empireTranslations[empireLanguage]?.startCosmicRiseLabel || 'START RISING',
+              bake: empireTranslations[empireLanguage]?.startCosmicBakeLabel || 'START BAKING'
+            };
+            
+            button.querySelector('span').textContent = labels[type];
+            button.style.background = '';
+            
+            const messages = {
+              prep: '🎉 PREPARATION COMPLETE! TIME TO LET THE DOUGH RISE TO PERFECTION!',
+              rise: '🎉 RISING COMPLETE! YOUR DOUGH IS PERFECTLY DEVELOPED AND READY!',
+              bake: '🍕 BAKING COMPLETE! YOUR LEGENDARY MASTERPIECE IS READY TO DEVOUR!'
+            };
+            
+            showEmpireNotification(messages[type], 'success', 8000);
+          }
+        }, 1000);
+        
+        showEmpireNotification(`⏰ ${type.toUpperCase()} TIMER STARTED! PERFECT TIMING FOR LEGENDARY RESULTS!`, 'success');
+      }
+    }
+
+    function formatEmpireTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function setEmpireRating(e) {
+      empireRating = parseInt(e.target.dataset.rating);
+      updateEmpireStarDisplay();
+      
+      const messages = {
+        1: "THANKS FOR THE FEEDBACK! WE'LL KEEP IMPROVING! 😊",
+        2: "WE APPRECIATE YOUR INPUT! WHAT COULD BE BETTER? 🤔",
+        3: "NOT BAD! THANKS FOR TRYING OUR LEGENDARY RECIPE! 👍",
+        4: "GREAT! WE'RE HAPPY YOU ENJOYED THE EXPERIENCE! 😄",
+        5: "ABSOLUTELY LEGENDARY! YOU'RE A TRUE PIZZA MASTER! 🍕👨‍🍳✨"
+      };
+      
+      document.getElementById('worldClassRatingMessage').textContent = messages[empireRating];
+      showEmpireNotification(`⭐ RATED ${empireRating} STARS! THANK YOU FOR YOUR LEGENDARY FEEDBACK!`, 'success');
+    }
+
+    function highlightEmpireStars(e) {
+      const rating = parseInt(e.target.dataset.rating);
+      document.querySelectorAll('.premium-star').forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    function resetEmpireStarHighlight() {
+      updateEmpireStarDisplay();
+    }
+
+    function updateEmpireStarDisplay() {
+      document.querySelectorAll('.premium-star').forEach((star, index) => {
+        if (index < empireRating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    function submitEmpireReview() {
+      const reviewText = document.getElementById('worldClassReviewInput').value.trim();
+      const button = document.getElementById('submitWorldClassReview');
+      
+      if (empireRating === 0) {
+        showEmpireNotification('⭐ PLEASE RATE YOUR LEGENDARY EXPERIENCE FIRST! YOUR STARS HELP OTHERS!', 'warning');
+        return;
+      }
+      
+      if (reviewText === '') {
+        showEmpireNotification('✍️ PLEASE SHARE YOUR EPIC THOUGHTS! THE COMMUNITY LOVES HEARING LEGENDARY EXPERIENCES!', 'warning');
+        return;
+      }
+      
+      button.querySelector('span').textContent = 'SHARING WITH WORLD...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        showEmpireNotification('🎉 REVIEW SHARED WITH OUR LEGENDARY GLOBAL PIZZA EMPIRE! THANK YOU FOR INSPIRING OTHERS!', 'success', 8000);
+        button.querySelector('span').textContent = 'REVIEW SHARED! ✅';
+        document.getElementById('worldClassReviewInput').value = '';
+        
+        setTimeout(() => {
+          const t = empireTranslations[empireLanguage];
+          button.querySelector('span').textContent = t.submitWorldClassReviewLabel || '🚀 SHARE WITH WORLD';
+          button.disabled = false;
+        }, 4000);
+      }, 3000);
+    }
+
+    function updateEmpireLiveStats() {
+      // Simulate epic live updates with realistic changes
+      const elements = {
+        chefs: document.getElementById('empireChefs'),
+        pizzas: document.getElementById('empirePizzas'),
+        countries: document.getElementById('empireCountries'),
+        community: document.getElementById('empireCommunity')
+      };
+
+      // Update active chefs (small fluctuations)
+      const currentChefs = parseInt(elements.chefs.textContent.replace(',', ''));
+      const newChefs = currentChefs + Math.floor(Math.random() * 30) - 15;
+      if (newChefs > 1000) {
+        elements.chefs.textContent = newChefs.toLocaleString();
+      }
+
+      // Update pizzas crafted (always increasing)
+      const currentPizzas = parseInt(elements.pizzas.textContent.replace(',', ''));
+      const newPizzas = currentPizzas + Math.floor(Math.random() * 8) + 2;
+      elements.pizzas.textContent = newPizzas.toLocaleString();
+
+      // Occasionally update countries (slow growth)
+      if (Math.random() < 0.15) {
+        const currentCountries = parseInt(elements.countries.textContent);
+        if (currentCountries < 195) {
+          elements.countries.textContent = currentCountries + 1;
+        }
+      }
+
+      // Update community size (gradual growth)
+      if (Math.random() < 0.3) {
+        const currentCommunity = parseFloat(elements.community.textContent.replace('M', ''));
+        const newCommunity = (currentCommunity + 0.001).toFixed(1);
+        elements.community.textContent = `${newCommunity}M`;
+      }
+    }
+
+    function setupScrollReveal() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    function closeEmpireDropdownsOnOutsideClick(e) {
+      const langSelector = document.getElementById('megaLangBtn').parentElement;
+      const dropdown = document.getElementById('megaLangDropdown');
+      
+      if (!langSelector.contains(e.target)) {
+        dropdown.classList.remove('active');
+        document.getElementById('megaLangArrow').style.transform = 'rotate(0deg)';
+      }
+    }
+
+    function showEmpireNotification(message, type = 'info', duration = 5000) {
+      const container = document.getElementById('worldNotificationContainer');
+      const notification = document.createElement('div');
+      notification.className = `world-notification ${type}`;
+      
+      const icons = {
+        success: '✅',
+        info: 'ℹ️',
+        warning: '⚠️'
+      };
+      
+      notification.innerHTML = `
+        <div class="flex items-center space-x-4">
+          <div class="text-3xl">${icons[type]}</div>
+          <div class="font-black text-lg">${message}</div>
+        </div>
+      `;
+      
+      container.appendChild(notification);
+      setTimeout(() => notification.classList.add('show'), 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          if (container.contains(notification)) {
+            container.removeChild(notification);
+          }
+        }, 600);
+      }, duration);
+    }
+
+    // Auto-select Italy by default
+    setTimeout(() => {
+      document.querySelector('.country-masterpiece[data-country="italy"]').classList.add('selected');
+    }, 200);
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98e0200cd08c9080',t:'MTc2MDM3MjAxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
