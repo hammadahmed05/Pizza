@@ -1,0 +1,2289 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍕 Hammad's Professional Pizza Studio - Enterprise Solution</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      min-height: 100vh;
+    }
+    
+    .playfair { font-family: 'Playfair Display', serif; }
+    
+    /* Professional Glass Design */
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Professional Animations */
+    .smooth-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .smooth-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Professional Button */
+    .pro-btn {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      border: none;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pro-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+    
+    .pro-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Status Indicators */
+    .status-online { color: #10b981; }
+    .status-busy { color: #f59e0b; }
+    .status-offline { color: #ef4444; }
+    
+    /* Progress Bars */
+    .progress-bar {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.8s ease;
+    }
+    
+    /* Charts */
+    .chart-bar {
+      background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+      border-radius: 4px 4px 0 0;
+      transition: height 0.5s ease;
+    }
+    
+    /* Order Status */
+    .order-pending { border-left: 4px solid #f59e0b; }
+    .order-preparing { border-left: 4px solid #3b82f6; }
+    .order-baking { border-left: 4px solid #f97316; }
+    .order-ready { border-left: 4px solid #10b981; }
+    .order-delivered { border-left: 4px solid #6b7280; }
+    
+    /* Inventory Alerts */
+    .inventory-low { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .inventory-medium { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .inventory-good { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+    
+    /* Real-time Updates */
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    /* Professional Tables */
+    .pro-table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    
+    .pro-table th {
+      background: rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .pro-table td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .pro-table tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Loading States */
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Notification System */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      max-width: 400px;
+    }
+    
+    .notification.show {
+      transform: translateX(0);
+    }
+    
+    .notification.success {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    
+    .notification.error {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    .notification.warning {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+    
+    .notification.info {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .mobile-hidden { display: none; }
+      .mobile-full { width: 100%; }
+    }
+    
+    /* Fade In Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Professional Metrics */
+    .metric-card {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .metric-positive { color: #10b981; }
+    .metric-negative { color: #ef4444; }
+    .metric-neutral { color: #6b7280; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="min-h-screen"><!-- Professional Navigation -->
+  <nav class="glass-strong sticky top-0 z-50 fade-in">
+   <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+     <div class="flex items-center space-x-4">
+      <h1 class="text-2xl font-bold text-white playfair">🍕 Hammad's Pizza Studio</h1><span class="glass rounded-full px-3 py-1 text-sm text-white">Professional Edition</span>
+     </div><!-- Navigation Menu -->
+    <div class="hidden lg:flex items-center space-x-8"><button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="dashboard">Dashboard</button> <button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="orders">Orders</button> <button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="inventory">Inventory</button> <button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="analytics">Analytics</button> <button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="customers">Customers</button> <button class="nav-item text-white hover:text-blue-400 transition-colors" data-section="staff">Staff</button>
+        button
+     <!-- pizza-Recipe link -->
+     <a href="pizza.html" class="nav-item text-white hover:text-blue-400 transition-colors ml-4">pizza-Recipe</a>
+     </div>
+     <div class="flex items-center space-x-6"><!-- Notifications -->
+      <div class="relative"><button id="notificationBell" class="text-white hover:text-blue-400 transition-colors relative">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+        </svg><span id="notificationCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span> </button>
+      </div><!-- Search -->
+      <div class="relative"><input type="text" id="globalSearch" placeholder="Search orders, customers..." class="glass rounded-lg px-4 py-2 text-white placeholder-white/50 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400">
+       <svg class="w-4 h-4 text-white/50 absolute right-3 top-3" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+       </svg>
+      </div><!-- Real-time Status -->
+      <div class="flex items-center space-x-2">
+       <div class="w-3 h-3 bg-green-500 rounded-full pulse-animation"></div><span class="text-white text-sm">System Online</span>
+      </div><!-- Current Time -->
+      <div class="text-white text-sm" id="currentTime"></div><!-- User Profile -->
+      <div class="flex items-center space-x-2 cursor-pointer" id="userProfile">
+       <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
+        H
+       </div><span class="text-white">Hammad</span>
+       <svg class="w-4 h-4 text-white/70" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+       </svg>
+      </div>
+     </div>
+    </div>
+   </div>
+  </nav><!-- Notification Dropdown -->
+  <div id="notificationDropdown" class="fixed top-20 right-6 glass-strong rounded-2xl p-4 z-40 hidden min-w-80">
+   <div class="flex items-center justify-between mb-4">
+    <h3 class="text-white font-semibold">Notifications</h3><button id="markAllRead" class="text-blue-400 text-sm hover:text-blue-300">Mark all read</button>
+   </div>
+   <div class="space-y-3 max-h-96 overflow-y-auto">
+    <div class="p-3 glass rounded-lg border-l-4 border-blue-500">
+     <div class="flex justify-between items-start mb-1"><span class="text-white font-medium text-sm">New Order Received</span> <span class="text-white/70 text-xs">2 min ago</span>
+     </div>
+     <p class="text-white/70 text-sm">Order #ORD-006 from Sarah Johnson - $45.99</p>
+    </div>
+    <div class="p-3 glass rounded-lg border-l-4 border-yellow-500">
+     <div class="flex justify-between items-start mb-1"><span class="text-white font-medium text-sm">Low Stock Alert</span> <span class="text-white/70 text-xs">15 min ago</span>
+     </div>
+     <p class="text-white/70 text-sm">Pizza dough running low - 12 units remaining</p>
+    </div>
+    <div class="p-3 glass rounded-lg border-l-4 border-green-500">
+     <div class="flex justify-between items-start mb-1"><span class="text-white font-medium text-sm">Staff Check-in</span> <span class="text-white/70 text-xs">1 hour ago</span>
+     </div>
+     <p class="text-white/70 text-sm">Mike Rodriguez started delivery shift</p>
+    </div>
+   </div>
+  </div><!-- Professional Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+   <div class="glass-strong rounded-3xl p-8 max-w-md w-full mx-4 fade-in">
+    <div class="text-center mb-6">
+     <h2 class="text-3xl font-bold text-white playfair mb-2">Sign in to Hammad's Pizza Studio</h2>
+     <p class="text-white/70">Use your account to access the professional dashboard.</p>
+    </div>
+
+    <!-- Social Login Options (simulated) -->
+    <div class="space-y-3 mb-4">
+      <button id="googleLogin" class="w-full flex items-center justify-center space-x-3 glass rounded-xl p-3 smooth-hover text-white">
+        <svg class="w-5 h-5" viewbox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" /></svg>
+        <span class="font-semibold">Continue with Google</span>
+      </button>
+      <button id="facebookLogin" class="w-full flex items-center justify-center space-x-3 glass rounded-xl p-3 smooth-hover text-white">
+        <svg class="w-5 h-5" viewbox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+        <span class="font-semibold">Continue with Facebook</span>
+      </button>
+    </div>
+
+    <div class="flex items-center my-4">
+     <div class="flex-1 border-t border-white/20"></div><span class="px-4 text-white/70 text-sm">or</span>
+     <div class="flex-1 border-t border-white/20"></div>
+    </div>
+
+    <!-- Login View -->
+    <div id="loginView">
+      <form id="emailLoginForm" class="space-y-4">
+        <div>
+          <label for="loginEmail" class="block text-white/70 text-sm font-medium mb-2">Email Address</label>
+          <input type="email" id="loginEmail" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="Enter your email">
+        </div>
+        <div>
+          <label for="loginPassword" class="block text-white/70 text-sm font-medium mb-2">Password</label>
+          <input type="password" id="loginPassword" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="Enter your password">
+        </div>
+        <div class="flex items-center justify-between">
+          <label class="flex items-center space-x-2 cursor-pointer"> <input id="rememberMe" type="checkbox" class="rounded border-white/20"> <span class="text-white/70 text-sm">Remember me</span> </label>
+          <button type="button" id="forgotPassword" class="text-blue-400 text-sm hover:text-blue-300 transition-colors">Forgot password?</button>
+        </div>
+        <div id="loginError" class="text-red-400 text-sm hidden"></div>
+        <button type="submit" class="pro-btn w-full py-4 rounded-xl font-semibold"> Sign In to Dashboard </button>
+      </form>
+      <div class="text-center mt-4">
+       <p class="text-white/70 text-sm">Don't have an account? <button id="showSignUp" class="text-blue-400 hover:text-blue-300 transition-colors font-semibold">Create Account</button></p>
+      </div>
+    </div>
+
+    <!-- Sign Up View (hidden by default) -->
+    <div id="signupView" class="hidden">
+      <form id="signUpForm" class="space-y-4">
+        <div>
+          <label for="signName" class="block text-white/70 text-sm font-medium mb-2">Full Name</label>
+          <input type="text" id="signName" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="Your full name">
+        </div>
+        <div>
+          <label for="signEmail" class="block text-white/70 text-sm font-medium mb-2">Email Address</label>
+          <input type="email" id="signEmail" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="name@company.com">
+        </div>
+        <div>
+          <label for="signPassword" class="block text-white/70 text-sm font-medium mb-2">Password</label>
+          <input type="password" id="signPassword" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="Create a strong password">
+        </div>
+        <div>
+          <label for="signPasswordConfirm" class="block text-white/70 text-sm font-medium mb-2">Confirm Password</label>
+          <input type="password" id="signPasswordConfirm" required class="w-full glass rounded-xl p-4 text-white placeholder-white/50 border border-white/20 focus:border-blue-400 focus:outline-none transition-colors" placeholder="Repeat your password">
+        </div>
+        <div id="signUpError" class="text-red-400 text-sm hidden"></div>
+        <button type="submit" class="pro-btn w-full py-4 rounded-xl font-semibold"> Create Account </button>
+        <div class="text-center mt-3">
+          <button type="button" id="backToLogin" class="text-white/70 text-sm hover:text-white">Back to Sign in</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-6 p-4 glass rounded-xl">
+     <div class="flex items-center space-x-2 mb-2">
+      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+      </svg><span class="text-green-400 text-sm font-semibold">Secure Login</span>
+     </div>
+     <p class="text-white/70 text-xs">This demo stores credentials locally in the browser (for demo only). For production use, integrate a secure backend and hashed passwords.</p>
+    </div>
+   </div>
+  </div><!-- User Profile Dropdown -->
+  <div id="profileDropdown" class="fixed top-20 right-6 glass-strong rounded-2xl p-4 z-40 hidden min-w-64">
+   <div class="flex items-center space-x-3 mb-4 pb-4 border-b border-white/20">
+    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+     H
+    </div>
+    <div>
+     <div class="text-white font-semibold" id="userDisplayName">
+      Hammad Ali
+     </div>
+     <div class="text-white/70 text-sm" id="userEmail">
+      hammad@pizzastudio.com
+     </div>
+    </div>
+   </div>
+   <div class="space-y-2"><button class="w-full text-left p-3 rounded-lg hover:bg-white/10 text-white transition-colors flex items-center space-x-3">
+     <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+     </svg><span>Profile Settings</span> </button> <button class="w-full text-left p-3 rounded-lg hover:bg-white/10 text-white transition-colors flex items-center space-x-3">
+     <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+     </svg><span>Account Settings</span> </button> <button class="w-full text-left p-3 rounded-lg hover:bg-white/10 text-white transition-colors flex items-center space-x-3">
+     <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+     </svg><span>Help &amp; Support</span> </button>
+    <hr class="border-white/20 my-2"><button id="logoutBtn" class="w-full text-left p-3 rounded-lg hover:bg-red-500/20 text-red-400 transition-colors flex items-center space-x-3">
+     <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+     </svg><span>Sign Out</span> </button>
+   </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 py-8"><!-- Dashboard Overview -->
+   <section class="mb-8 fade-in">
+    <h2 class="text-3xl font-bold text-white mb-6 playfair">Business Dashboard</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"><!-- Revenue Metric -->
+     <div class="glass-strong rounded-2xl p-6 smooth-hover">
+      <div class="flex items-center justify-between mb-4">
+       <div class="text-2xl">
+        💰
+       </div>
+       <div class="text-sm text-green-400">
+        +12.5%
+       </div>
+      </div>
+      <div class="text-2xl font-bold text-white mb-1" id="todayRevenue">
+       $2,847
+      </div>
+      <div class="text-white/70 text-sm">
+       Today's Revenue
+      </div>
+     </div><!-- Orders Metric -->
+     <div class="glass-strong rounded-2xl p-6 smooth-hover">
+      <div class="flex items-center justify-between mb-4">
+       <div class="text-2xl">
+        📋
+       </div>
+       <div class="text-sm text-green-400">
+        +8.3%
+       </div>
+      </div>
+      <div class="text-2xl font-bold text-white mb-1" id="todayOrders">
+       47
+      </div>
+      <div class="text-white/70 text-sm">
+       Orders Today
+      </div>
+     </div><!-- Average Order Value -->
+     <div class="glass-strong rounded-2xl p-6 smooth-hover">
+      <div class="flex items-center justify-between mb-4">
+       <div class="text-2xl">
+        📊
+       </div>
+       <div class="text-sm text-blue-400">
+        +3.7%
+       </div>
+      </div>
+      <div class="text-2xl font-bold text-white mb-1" id="avgOrderValue">
+       $60.57
+      </div>
+      <div class="text-white/70 text-sm">
+       Avg Order Value
+      </div>
+     </div><!-- Customer Satisfaction -->
+     <div class="glass-strong rounded-2xl p-6 smooth-hover">
+      <div class="flex items-center justify-between mb-4">
+       <div class="text-2xl">
+        ⭐
+       </div>
+       <div class="text-sm text-green-400">
+        +0.2
+       </div>
+      </div>
+      <div class="text-2xl font-bold text-white mb-1" id="customerSat">
+       4.8
+      </div>
+      <div class="text-white/70 text-sm">
+       Customer Rating
+      </div>
+     </div>
+    </div>
+   </section><!-- Real-time Order Management -->
+   <section class="mb-8 fade-in" id="ordersSection">
+    <div class="glass-strong rounded-3xl p-8">
+     <div class="flex items-center justify-between mb-6">
+      <h3 class="text-2xl font-bold text-white playfair">Live Order Management</h3>
+      <div class="flex space-x-3"><button id="newOrderBtn" class="pro-btn px-4 py-2 rounded-lg text-sm"> ➕ New Order </button> <button id="refreshOrders" class="pro-btn px-4 py-2 rounded-lg text-sm"> 🔄 Refresh </button> <button id="printOrders" class="pro-btn px-4 py-2 rounded-lg text-sm"> 🖨️ Print </button>
+      </div>
+     </div><!-- Order Filters -->
+     <div class="flex flex-wrap items-center justify-between mb-6 gap-4">
+      <div class="flex space-x-4"><button class="order-tab active pro-btn px-4 py-2 rounded-lg text-sm" data-status="all"> All Orders (<span id="allCount">12</span>) </button> <button class="order-tab pro-btn px-4 py-2 rounded-lg text-sm bg-orange-600" data-status="pending"> Pending (<span id="pendingCount">3</span>) </button> <button class="order-tab pro-btn px-4 py-2 rounded-lg text-sm bg-blue-600" data-status="preparing"> Preparing (<span id="preparingCount">5</span>) </button> <button class="order-tab pro-btn px-4 py-2 rounded-lg text-sm bg-purple-600" data-status="baking"> Baking (<span id="bakingCount">2</span>) </button> <button class="order-tab pro-btn px-4 py-2 rounded-lg text-sm bg-green-600" data-status="ready"> Ready (<span id="readyCount">4</span>) </button>
+      </div>
+      <div class="flex items-center space-x-3"><select id="orderSort" class="glass rounded-lg px-3 py-2 text-white text-sm"> <option value="time">Sort by Time</option> <option value="total">Sort by Total</option> <option value="customer">Sort by Customer</option> <option value="status">Sort by Status</option> </select> <input type="date" id="orderDate" class="glass rounded-lg px-3 py-2 text-white text-sm">
+      </div>
+     </div><!-- Orders Table -->
+     <div class="overflow-x-auto">
+      <table class="pro-table w-full text-white">
+       <thead>
+        <tr>
+         <th class="text-left p-4"><input type="checkbox" id="selectAll" class="rounded"></th>
+         <th class="text-left p-4 cursor-pointer hover:text-blue-400" onclick="sortTable('id')">Order ID <span class="sort-indicator">↕️</span></th>
+         <th class="text-left p-4 cursor-pointer hover:text-blue-400" onclick="sortTable('customer')">Customer <span class="sort-indicator">↕️</span></th>
+         <th class="text-left p-4">Items</th>
+         <th class="text-left p-4 cursor-pointer hover:text-blue-400" onclick="sortTable('total')">Total <span class="sort-indicator">↕️</span></th>
+         <th class="text-left p-4">Status</th>
+         <th class="text-left p-4 cursor-pointer hover:text-blue-400" onclick="sortTable('time')">Time <span class="sort-indicator">↕️</span></th>
+         <th class="text-left p-4">Priority</th>
+         <th class="text-left p-4">Actions</th>
+        </tr>
+       </thead>
+       <tbody id="ordersTableBody"><!-- Orders will be populated here -->
+       </tbody>
+      </table>
+     </div><!-- Bulk Actions -->
+     <div id="bulkActions" class="mt-6 p-4 glass rounded-2xl hidden">
+      <div class="flex items-center justify-between"><span class="text-white"> <span id="selectedCount">0</span> orders selected </span>
+       <div class="flex space-x-3"><button id="bulkStatusUpdate" class="pro-btn px-4 py-2 rounded-lg text-sm"> Update Status </button> <button id="bulkPrint" class="pro-btn px-4 py-2 rounded-lg text-sm"> Print Selected </button> <button id="bulkDelete" class="pro-btn px-4 py-2 rounded-lg text-sm bg-red-600"> Delete Selected </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Order Details Modal -->
+   <div id="orderDetailsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+    <div class="glass-strong rounded-3xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+     <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-white playfair">Order Details</h2><button id="closeOrderModal" class="text-white/70 hover:text-white">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+       </svg></button>
+     </div>
+     <div id="orderDetailsContent" class="space-y-6"><!-- Order details will be populated here -->
+     </div>
+     <div class="flex space-x-4 mt-8"><button id="updateOrderStatus" class="pro-btn flex-1 py-3 rounded-lg"> Update Status </button> <button id="printOrder" class="pro-btn flex-1 py-3 rounded-lg"> Print Order </button> <button id="refundOrder" class="pro-btn flex-1 py-3 rounded-lg bg-red-600"> Process Refund </button>
+     </div>
+    </div>
+   </div><!-- Inventory Management -->
+   <section class="mb-8 fade-in">
+    <div class="glass-strong rounded-3xl p-8">
+     <div class="flex items-center justify-between mb-6">
+      <h3 class="text-2xl font-bold text-white playfair">Inventory Management</h3><button id="updateInventory" class="pro-btn px-4 py-2 rounded-lg text-sm"> 📦 Update Stock </button>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Inventory Items -->
+      <div class="inventory-item glass rounded-2xl p-6 inventory-low">
+       <div class="flex items-center justify-between mb-4">
+        <div class="text-2xl">
+         🍞
+        </div>
+        <div class="text-red-400 text-sm font-semibold">
+         LOW STOCK
+        </div>
+       </div>
+       <h4 class="text-lg font-semibold text-white mb-2">Pizza Dough</h4>
+       <div class="flex items-center justify-between mb-2"><span class="text-white/70">Current Stock:</span> <span class="text-white font-semibold">12 units</span>
+       </div>
+       <div class="progress-bar h-2 mb-4">
+        <div class="progress-fill bg-red-500" style="width: 20%"></div>
+       </div><button class="pro-btn w-full py-2 rounded-lg text-sm">Reorder Now</button>
+      </div>
+      <div class="inventory-item glass rounded-2xl p-6 inventory-medium">
+       <div class="flex items-center justify-between mb-4">
+        <div class="text-2xl">
+         🧀
+        </div>
+        <div class="text-yellow-400 text-sm font-semibold">
+         MEDIUM
+        </div>
+       </div>
+       <h4 class="text-lg font-semibold text-white mb-2">Mozzarella Cheese</h4>
+       <div class="flex items-center justify-between mb-2"><span class="text-white/70">Current Stock:</span> <span class="text-white font-semibold">45 kg</span>
+       </div>
+       <div class="progress-bar h-2 mb-4">
+        <div class="progress-fill bg-yellow-500" style="width: 60%"></div>
+       </div><button class="pro-btn w-full py-2 rounded-lg text-sm">Monitor</button>
+      </div>
+      <div class="inventory-item glass rounded-2xl p-6 inventory-good">
+       <div class="flex items-center justify-between mb-4">
+        <div class="text-2xl">
+         🍅
+        </div>
+        <div class="text-green-400 text-sm font-semibold">
+         GOOD
+        </div>
+       </div>
+       <h4 class="text-lg font-semibold text-white mb-2">Tomato Sauce</h4>
+       <div class="flex items-center justify-between mb-2"><span class="text-white/70">Current Stock:</span> <span class="text-white font-semibold">28 liters</span>
+       </div>
+       <div class="progress-bar h-2 mb-4">
+        <div class="progress-fill bg-green-500" style="width: 85%"></div>
+       </div><button class="pro-btn w-full py-2 rounded-lg text-sm">Well Stocked</button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Analytics & Reports -->
+   <section class="mb-8 fade-in" id="analyticsSection">
+    <div class="glass-strong rounded-3xl p-8">
+     <div class="flex items-center justify-between mb-6">
+      <h3 class="text-2xl font-bold text-white playfair">Business Analytics &amp; Reports</h3>
+      <div class="flex space-x-3"><select id="analyticsTimeframe" class="glass rounded-lg px-3 py-2 text-white text-sm"> <option value="today">Today</option> <option value="week" selected>This Week</option> <option value="month">This Month</option> <option value="quarter">This Quarter</option> <option value="year">This Year</option> </select> <button id="exportReport" class="pro-btn px-4 py-2 rounded-lg text-sm"> 📊 Export Report </button>
+      </div>
+     </div><!-- Key Performance Indicators -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="text-3xl mb-2">
+        📈
+       </div>
+       <div class="text-2xl font-bold text-white mb-1" id="growthRate">
+        +15.3%
+       </div>
+       <div class="text-white/70 text-sm">
+        Growth Rate
+       </div>
+       <div class="text-green-400 text-xs mt-1">
+        vs last period
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="text-3xl mb-2">
+        ⏱️
+       </div>
+       <div class="text-2xl font-bold text-white mb-1" id="avgPrepTime">
+        18 min
+       </div>
+       <div class="text-white/70 text-sm">
+        Avg Prep Time
+       </div>
+       <div class="text-yellow-400 text-xs mt-1">
+        -2 min improvement
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="text-3xl mb-2">
+        🎯
+       </div>
+       <div class="text-2xl font-bold text-white mb-1" id="orderAccuracy">
+        98.7%
+       </div>
+       <div class="text-white/70 text-sm">
+        Order Accuracy
+       </div>
+       <div class="text-green-400 text-xs mt-1">
+        +0.5% improvement
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="text-3xl mb-2">
+        🔄
+       </div>
+       <div class="text-2xl font-bold text-white mb-1" id="repeatCustomers">
+        73%
+       </div>
+       <div class="text-white/70 text-sm">
+        Repeat Customers
+       </div>
+       <div class="text-green-400 text-xs mt-1">
+        +5% increase
+       </div>
+      </div>
+     </div>
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8"><!-- Enhanced Sales Chart -->
+      <div class="glass rounded-2xl p-6">
+       <div class="flex items-center justify-between mb-4">
+        <h4 class="text-lg font-semibold text-white">Sales Performance</h4>
+        <div class="flex space-x-2"><button class="chart-toggle active text-blue-400 text-sm" data-chart="revenue">Revenue</button> <button class="chart-toggle text-white/70 text-sm" data-chart="orders">Orders</button> <button class="chart-toggle text-white/70 text-sm" data-chart="customers">Customers</button>
+        </div>
+       </div>
+       <div class="flex items-end space-x-3 h-48" id="salesChart">
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 60%" data-value="2400" data-label="$2,400"></div><span class="text-white/70 text-xs mt-2">Mon</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 80%" data-value="3200" data-label="$3,200"></div><span class="text-white/70 text-xs mt-2">Tue</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 45%" data-value="1800" data-label="$1,800"></div><span class="text-white/70 text-xs mt-2">Wed</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 90%" data-value="3600" data-label="$3,600"></div><span class="text-white/70 text-xs mt-2">Thu</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 100%" data-value="4000" data-label="$4,000"></div><span class="text-white/70 text-xs mt-2">Fri</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 95%" data-value="3800" data-label="$3,800"></div><span class="text-white/70 text-xs mt-2">Sat</span>
+        </div>
+        <div class="flex flex-col items-center">
+         <div class="chart-bar w-10" style="height: 75%" data-value="3000" data-label="$3,000"></div><span class="text-white/70 text-xs mt-2">Sun</span>
+        </div>
+       </div>
+       <div class="mt-4 text-center"><span class="text-white/70 text-sm">Total: </span> <span class="text-white font-semibold" id="chartTotal">$21,800</span>
+       </div>
+      </div><!-- Enhanced Popular Items -->
+      <div class="glass rounded-2xl p-6">
+       <div class="flex items-center justify-between mb-4">
+        <h4 class="text-lg font-semibold text-white">Top Performing Items</h4><button id="viewAllItems" class="text-blue-400 text-sm hover:text-blue-300">View All</button>
+       </div>
+       <div class="space-y-4">
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="text-2xl">
+           🍕
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            Margherita Pizza
+           </div>
+           <div class="text-white/70 text-sm">
+            127 orders • 4.9★
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-green-400 font-semibold">
+           $2,540
+          </div>
+          <div class="text-white/70 text-xs">
+           +12% vs last week
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="text-2xl">
+           🍖
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            Pepperoni Pizza
+           </div>
+           <div class="text-white/70 text-sm">
+            98 orders • 4.8★
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-green-400 font-semibold">
+           $1,960
+          </div>
+          <div class="text-white/70 text-xs">
+           +8% vs last week
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="text-2xl">
+           🌿
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            Veggie Supreme
+           </div>
+           <div class="text-white/70 text-sm">
+            76 orders • 4.7★
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-green-400 font-semibold">
+           $1,520
+          </div>
+          <div class="text-white/70 text-xs">
+           +15% vs last week
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="text-2xl">
+           🧀
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            Four Cheese
+           </div>
+           <div class="text-white/70 text-sm">
+            64 orders • 4.6★
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-green-400 font-semibold">
+           $1,280
+          </div>
+          <div class="text-white/70 text-xs">
+           +3% vs last week
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Advanced Analytics -->
+     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8"><!-- Peak Hours Analysis -->
+      <div class="glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Peak Hours Analysis</h4>
+       <div class="space-y-3">
+        <div class="flex items-center justify-between"><span class="text-white/70">11:00 AM - 1:00 PM</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-20 h-2 bg-white/20 rounded-full">
+           <div class="w-4/5 h-full bg-blue-500 rounded-full"></div>
+          </div><span class="text-white text-sm">80%</span>
+         </div>
+        </div>
+        <div class="flex items-center justify-between"><span class="text-white/70">6:00 PM - 8:00 PM</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-20 h-2 bg-white/20 rounded-full">
+           <div class="w-full h-full bg-green-500 rounded-full"></div>
+          </div><span class="text-white text-sm">100%</span>
+         </div>
+        </div>
+        <div class="flex items-center justify-between"><span class="text-white/70">8:00 PM - 10:00 PM</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-20 h-2 bg-white/20 rounded-full">
+           <div class="w-3/5 h-full bg-yellow-500 rounded-full"></div>
+          </div><span class="text-white text-sm">60%</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Customer Demographics -->
+      <div class="glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Customer Demographics</h4>
+       <div class="space-y-4">
+        <div class="text-center">
+         <div class="w-24 h-24 mx-auto mb-3 relative">
+          <svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" /> <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="65, 100" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center"><span class="text-white font-semibold">65%</span>
+          </div>
+         </div>
+         <div class="text-white/70 text-sm">
+          Repeat Customers
+         </div>
+        </div>
+        <div class="space-y-2">
+         <div class="flex justify-between text-sm"><span class="text-white/70">Age 18-25:</span> <span class="text-white">28%</span>
+         </div>
+         <div class="flex justify-between text-sm"><span class="text-white/70">Age 26-35:</span> <span class="text-white">42%</span>
+         </div>
+         <div class="flex justify-between text-sm"><span class="text-white/70">Age 36-50:</span> <span class="text-white">23%</span>
+         </div>
+         <div class="flex justify-between text-sm"><span class="text-white/70">Age 50+:</span> <span class="text-white">7%</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Revenue Breakdown -->
+      <div class="glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Revenue Breakdown</h4>
+       <div class="space-y-4">
+        <div class="flex items-center justify-between"><span class="text-white/70">Dine-in</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-16 h-2 bg-white/20 rounded-full">
+           <div class="w-3/5 h-full bg-blue-500 rounded-full"></div>
+          </div><span class="text-white text-sm">45%</span>
+         </div>
+        </div>
+        <div class="flex items-center justify-between"><span class="text-white/70">Delivery</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-16 h-2 bg-white/20 rounded-full">
+           <div class="w-2/5 h-full bg-green-500 rounded-full"></div>
+          </div><span class="text-white text-sm">35%</span>
+         </div>
+        </div>
+        <div class="flex items-center justify-between"><span class="text-white/70">Takeout</span>
+         <div class="flex items-center space-x-2">
+          <div class="w-16 h-2 bg-white/20 rounded-full">
+           <div class="w-1/5 h-full bg-yellow-500 rounded-full"></div>
+          </div><span class="text-white text-sm">20%</span>
+         </div>
+        </div>
+        <div class="mt-4 p-3 glass rounded-lg">
+         <div class="text-center">
+          <div class="text-2xl font-bold text-white">
+           $21,847
+          </div>
+          <div class="text-white/70 text-sm">
+           Total Weekly Revenue
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Customer Management -->
+   <section class="mb-8 fade-in">
+    <div class="glass-strong rounded-3xl p-8">
+     <div class="flex items-center justify-between mb-6">
+      <h3 class="text-2xl font-bold text-white playfair">Customer Management</h3><button id="exportCustomers" class="pro-btn px-4 py-2 rounded-lg text-sm"> 📊 Export Data </button>
+     </div>
+     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8"><!-- Customer Stats -->
+      <div class="glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Customer Statistics</h4>
+       <div class="space-y-4">
+        <div class="flex justify-between"><span class="text-white/70">Total Customers:</span> <span class="text-white font-semibold">1,247</span>
+        </div>
+        <div class="flex justify-between"><span class="text-white/70">New This Month:</span> <span class="text-green-400 font-semibold">+89</span>
+        </div>
+        <div class="flex justify-between"><span class="text-white/70">Repeat Customers:</span> <span class="text-white font-semibold">73%</span>
+        </div>
+        <div class="flex justify-between"><span class="text-white/70">Avg Lifetime Value:</span> <span class="text-white font-semibold">$342</span>
+        </div>
+       </div>
+      </div><!-- Recent Customers -->
+      <div class="lg:col-span-2 glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Recent Customers</h4>
+       <div class="space-y-3">
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
+           JS
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            John Smith
+           </div>
+           <div class="text-white/70 text-sm">
+            john@email.com
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-white font-semibold">
+           $89.50
+          </div>
+          <div class="text-white/70 text-sm">
+           Last order
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center justify-between p-3 glass rounded-lg">
+         <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold">
+           MJ
+          </div>
+          <div>
+           <div class="text-white font-medium">
+            Maria Johnson
+           </div>
+           <div class="text-white/70 text-sm">
+            maria@email.com
+           </div>
+          </div>
+         </div>
+         <div class="text-right">
+          <div class="text-white font-semibold">
+           $156.75
+          </div>
+          <div class="text-white/70 text-sm">
+           Last order
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Professional Pizza Builder -->
+   <section class="mb-8 fade-in">
+    <div class="glass-strong rounded-3xl p-8">
+     <h3 class="text-2xl font-bold text-white mb-6 playfair">Professional Pizza Builder</h3>
+     <div class="grid lg:grid-cols-2 gap-8"><!-- Pizza Configuration -->
+      <div class="space-y-6"><!-- Size & Crust -->
+       <div class="glass rounded-2xl p-6">
+        <h4 class="text-lg font-semibold text-white mb-4">Size &amp; Crust Configuration</h4>
+        <div class="grid grid-cols-2 gap-4 mb-4"><select id="pizzaSize" class="glass rounded-lg p-3 text-white bg-transparent border border-white/20"> <option value="small">Small (10") - $12.99</option> <option value="medium">Medium (12") - $16.99</option> <option value="large">Large (14") - $20.99</option> <option value="xlarge">X-Large (16") - $24.99</option> </select> <select id="crustType" class="glass rounded-lg p-3 text-white bg-transparent border border-white/20"> <option value="thin">Thin Crust</option> <option value="thick">Thick Crust</option> <option value="stuffed">Stuffed Crust (+$3)</option> <option value="gluten-free">Gluten-Free (+$4)</option> </select>
+        </div>
+       </div><!-- Ingredients Management -->
+       <div class="glass rounded-2xl p-6">
+        <h4 class="text-lg font-semibold text-white mb-4">Premium Ingredients</h4>
+        <div class="grid grid-cols-2 gap-3"><label class="flex items-center space-x-2 cursor-pointer"> <input type="checkbox" class="ingredient-checkbox" data-ingredient="premium-sauce" data-price="2.50"> <span class="text-white">Premium Tomato Sauce (+$2.50)</span> </label> <label class="flex items-center space-x-2 cursor-pointer"> <input type="checkbox" class="ingredient-checkbox" data-ingredient="buffalo-mozzarella" data-price="4.00"> <span class="text-white">Buffalo Mozzarella (+$4.00)</span> </label> <label class="flex items-center space-x-2 cursor-pointer"> <input type="checkbox" class="ingredient-checkbox" data-ingredient="truffle-oil" data-price="8.00"> <span class="text-white">Truffle Oil (+$8.00)</span> </label> <label class="flex items-center space-x-2 cursor-pointer"> <input type="checkbox" class="ingredient-checkbox" data-ingredient="prosciutto" data-price="6.50"> <span class="text-white">Prosciutto (+$6.50)</span> </label>
+        </div>
+       </div><!-- Order Summary -->
+       <div class="glass rounded-2xl p-6">
+        <h4 class="text-lg font-semibold text-white mb-4">Order Summary</h4>
+        <div id="orderSummary" class="space-y-2 mb-4">
+         <div class="flex justify-between text-white"><span>Medium Pizza (12")</span> <span>$16.99</span>
+         </div>
+        </div>
+        <div class="border-t border-white/20 pt-4">
+         <div class="flex justify-between text-white font-semibold text-lg"><span>Total:</span> <span id="orderTotal">$16.99</span>
+         </div>
+        </div><button id="addToOrder" class="pro-btn w-full py-3 rounded-lg mt-4"> Add to Order </button>
+       </div>
+      </div><!-- Visual Pizza Builder -->
+      <div class="glass rounded-2xl p-6">
+       <h4 class="text-lg font-semibold text-white mb-4">Visual Preview</h4>
+       <div class="flex justify-center mb-6">
+        <div id="pizzaPreview" class="w-64 h-64 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-700 relative shadow-2xl">
+         <div class="absolute inset-2 rounded-full bg-gradient-to-r from-red-600 to-red-700 opacity-80"></div>
+         <div class="absolute inset-4 rounded-full bg-gradient-to-r from-yellow-200 to-yellow-300 opacity-90"></div>
+        </div>
+       </div><!-- Nutritional Information -->
+       <div class="glass rounded-lg p-4">
+        <h5 class="text-white font-semibold mb-3">Nutritional Information</h5>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+         <div class="text-white/70">
+          Calories: <span id="calories" class="text-white">420</span>
+         </div>
+         <div class="text-white/70">
+          Protein: <span id="protein" class="text-white">18g</span>
+         </div>
+         <div class="text-white/70">
+          Carbs: <span id="carbs" class="text-white">45g</span>
+         </div>
+         <div class="text-white/70">
+          Fat: <span id="fat" class="text-white">16g</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Staff Management -->
+   <section class="mb-8 fade-in">
+    <div class="glass-strong rounded-3xl p-8">
+     <h3 class="text-2xl font-bold text-white mb-6 playfair">Staff Management</h3>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Staff Member Cards -->
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+        AM
+       </div>
+       <h4 class="text-white font-semibold mb-2">Alex Martinez</h4>
+       <p class="text-white/70 text-sm mb-3">Head Chef</p>
+       <div class="flex items-center justify-center space-x-2 mb-3">
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-green-400 text-sm">On Duty</span>
+       </div>
+       <div class="text-white/70 text-xs">
+        Shift: 9:00 AM - 6:00 PM
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+        SL
+       </div>
+       <h4 class="text-white font-semibold mb-2">Sarah Lee</h4>
+       <p class="text-white/70 text-sm mb-3">Pizza Specialist</p>
+       <div class="flex items-center justify-center space-x-2 mb-3">
+        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div><span class="text-yellow-400 text-sm">Break</span>
+       </div>
+       <div class="text-white/70 text-xs">
+        Shift: 10:00 AM - 7:00 PM
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="w-16 h-16 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+        MR
+       </div>
+       <h4 class="text-white font-semibold mb-2">Mike Rodriguez</h4>
+       <p class="text-white/70 text-sm mb-3">Delivery Driver</p>
+       <div class="flex items-center justify-center space-x-2 mb-3">
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-green-400 text-sm">Delivering</span>
+       </div>
+       <div class="text-white/70 text-xs">
+        Shift: 11:00 AM - 8:00 PM
+       </div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+       <div class="w-16 h-16 bg-red-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+        JD
+       </div>
+       <h4 class="text-white font-semibold mb-2">Jenny Davis</h4>
+       <p class="text-white/70 text-sm mb-3">Customer Service</p>
+       <div class="flex items-center justify-center space-x-2 mb-3">
+        <div class="w-2 h-2 bg-gray-500 rounded-full"></div><span class="text-gray-400 text-sm">Off Duty</span>
+       </div>
+       <div class="text-white/70 text-xs">
+        Next Shift: 2:00 PM - 10:00 PM
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </div><!-- Notification Container -->
+  <div id="notificationContainer"></div>
+  <script>
+    // Professional Application State
+    let appState = {
+      orders: [],
+      inventory: {},
+      staff: [],
+      analytics: {},
+      currentOrder: {
+        size: 'medium',
+        crust: 'thin',
+        ingredients: [],
+        total: 16.99
+      },
+      user: {
+        isLoggedIn: false,
+        name: '',
+        email: '',
+        loginMethod: ''
+      },
+      notifications: [],
+      selectedOrders: new Set(),
+      currentView: 'dashboard',
+      sortConfig: { field: 'time', direction: 'desc' },
+      filters: { status: 'all', date: null }
+    };
+
+    // Enhanced Sample Data
+    const sampleOrders = [
+      { 
+        id: 'ORD-001', 
+        customer: 'John Smith', 
+        phone: '+1-555-0123',
+        email: 'john.smith@email.com',
+        items: [
+          { name: 'Margherita Pizza', quantity: 2, price: 20.99 },
+          { name: 'Pepperoni Pizza', quantity: 1, price: 22.99 }
+        ], 
+        total: 64.97, 
+        status: 'preparing', 
+        time: '12:34 PM',
+        timestamp: new Date().getTime() - 1800000,
+        priority: 'normal',
+        orderType: 'delivery',
+        address: '123 Main St, City, State 12345',
+        notes: 'Extra cheese on margherita',
+        estimatedTime: '25 min'
+      },
+      { 
+        id: 'ORD-002', 
+        customer: 'Maria Garcia', 
+        phone: '+1-555-0124',
+        email: 'maria.garcia@email.com',
+        items: [
+          { name: 'Veggie Supreme Pizza', quantity: 1, price: 24.99 }
+        ], 
+        total: 24.99, 
+        status: 'pending', 
+        time: '12:45 PM',
+        timestamp: new Date().getTime() - 1200000,
+        priority: 'high',
+        orderType: 'pickup',
+        address: '',
+        notes: 'Gluten-free crust',
+        estimatedTime: '20 min'
+      },
+      { 
+        id: 'ORD-003', 
+        customer: 'David Wilson', 
+        phone: '+1-555-0125',
+        email: 'david.wilson@email.com',
+        items: [
+          { name: 'Meat Lovers Pizza', quantity: 2, price: 28.99 }
+        ], 
+        total: 57.98, 
+        status: 'ready', 
+        time: '12:28 PM',
+        timestamp: new Date().getTime() - 2400000,
+        priority: 'normal',
+        orderType: 'dine-in',
+        address: '',
+        notes: 'Table 5',
+        estimatedTime: 'Ready'
+      },
+      { 
+        id: 'ORD-004', 
+        customer: 'Lisa Chen', 
+        phone: '+1-555-0126',
+        email: 'lisa.chen@email.com',
+        items: [
+          { name: 'Hawaiian Pizza', quantity: 1, price: 23.99 },
+          { name: 'Garlic Bread', quantity: 2, price: 5.99 }
+        ], 
+        total: 35.97, 
+        status: 'baking', 
+        time: '12:52 PM',
+        timestamp: new Date().getTime() - 600000,
+        priority: 'normal',
+        orderType: 'delivery',
+        address: '456 Oak Ave, City, State 12345',
+        notes: 'No pineapple',
+        estimatedTime: '15 min'
+      },
+      { 
+        id: 'ORD-005', 
+        customer: 'Robert Taylor', 
+        phone: '+1-555-0127',
+        email: 'robert.taylor@email.com',
+        items: [
+          { name: 'BBQ Chicken Pizza', quantity: 1, price: 26.99 }
+        ], 
+        total: 26.99, 
+        status: 'delivered', 
+        time: '11:45 AM',
+        timestamp: new Date().getTime() - 7200000,
+        priority: 'normal',
+        orderType: 'delivery',
+        address: '789 Pine St, City, State 12345',
+        notes: '',
+        estimatedTime: 'Delivered'
+      },
+      { 
+        id: 'ORD-006', 
+        customer: 'Sarah Johnson', 
+        phone: '+1-555-0128',
+        email: 'sarah.johnson@email.com',
+        items: [
+          { name: 'Four Cheese Pizza', quantity: 1, price: 25.99 },
+          { name: 'Caesar Salad', quantity: 1, price: 8.99 }
+        ], 
+        total: 34.98, 
+        status: 'pending', 
+        time: '1:15 PM',
+        timestamp: new Date().getTime() - 300000,
+        priority: 'urgent',
+        orderType: 'pickup',
+        address: '',
+        notes: 'ASAP - customer waiting',
+        estimatedTime: '10 min'
+      }
+    ];
+
+    // Enhanced Inventory Data
+    const inventoryItems = [
+      { id: 'dough', name: 'Pizza Dough', current: 12, minimum: 20, maximum: 100, unit: 'units', status: 'low', cost: 2.50 },
+      { id: 'mozzarella', name: 'Mozzarella Cheese', current: 45, minimum: 30, maximum: 80, unit: 'kg', status: 'medium', cost: 8.99 },
+      { id: 'tomato-sauce', name: 'Tomato Sauce', current: 28, minimum: 15, maximum: 50, unit: 'liters', status: 'good', cost: 3.25 },
+      { id: 'pepperoni', name: 'Pepperoni', current: 8, minimum: 10, maximum: 25, unit: 'kg', status: 'low', cost: 12.99 },
+      { id: 'vegetables', name: 'Fresh Vegetables', current: 22, minimum: 15, maximum: 40, unit: 'kg', status: 'good', cost: 4.50 },
+      { id: 'flour', name: 'Flour', current: 35, minimum: 25, maximum: 100, unit: 'kg', status: 'good', cost: 1.99 }
+    ];
+
+    // Staff Data
+    const staffMembers = [
+      { id: 'AM001', name: 'Alex Martinez', role: 'Head Chef', status: 'on-duty', shift: '9:00 AM - 6:00 PM', avatar: 'AM', color: 'green' },
+      { id: 'SL002', name: 'Sarah Lee', role: 'Pizza Specialist', status: 'break', shift: '10:00 AM - 7:00 PM', avatar: 'SL', color: 'blue' },
+      { id: 'MR003', name: 'Mike Rodriguez', role: 'Delivery Driver', status: 'delivering', shift: '11:00 AM - 8:00 PM', avatar: 'MR', color: 'purple' },
+      { id: 'JD004', name: 'Jenny Davis', role: 'Customer Service', status: 'off-duty', shift: '2:00 PM - 10:00 PM', avatar: 'JD', color: 'red' },
+      { id: 'TC005', name: 'Tom Chen', role: 'Kitchen Assistant', status: 'on-duty', shift: '8:00 AM - 4:00 PM', avatar: 'TC', color: 'yellow' }
+    ];
+
+    // Initialize Application
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeApp();
+      setupEventListeners();
+      startRealTimeUpdates();
+      showNotification('Professional Pizza Studio initialized successfully!', 'success');
+    });
+
+    function initializeApp() {
+      // Check if user is already logged in
+      const savedUser = localStorage.getItem('pizzaStudioUser');
+      if (savedUser) {
+        appState.user = JSON.parse(savedUser);
+        appState.user.isLoggedIn = true;
+        updateUserInterface();
+      } else {
+        showLoginModal();
+      }
+      
+      updateCurrentTime();
+      populateOrdersTable();
+      updateMetrics();
+      setupPizzaBuilder();
+    }
+
+    // Authentication Functions
+    function showLoginModal() {
+      document.getElementById('loginModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function toggleProfileDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      dropdown.classList.toggle('hidden');
+    }
+
+    function hideProfileDropdown() {
+      document.getElementById('profileDropdown').classList.add('hidden');
+    }
+
+    function handleGoogleLogin() {
+      const button = document.getElementById('googleLogin');
+      const originalContent = button.innerHTML;
+      
+      button.innerHTML = `
+        <div class="loading-spinner"></div>
+        <span class="font-semibold">Connecting to Google...</span>
+      `;
+      button.disabled = true;
+      
+      // Simulate Google OAuth flow
+      setTimeout(() => {
+        const userData = {
+          name: 'Hammad Ali',
+          email: 'hammad@gmail.com',
+          loginMethod: 'Google',
+          avatar: 'H'
+        };
+        
+        completeLogin(userData);
+        button.innerHTML = originalContent;
+        button.disabled = false;
+      }, 2000);
+    }
+
+    function handleFacebookLogin() {
+      const button = document.getElementById('facebookLogin');
+      const originalContent = button.innerHTML;
+      
+      button.innerHTML = `
+        <div class="loading-spinner"></div>
+        <span class="font-semibold">Connecting to Facebook...</span>
+      `;
+      button.disabled = true;
+      
+      // Simulate Facebook OAuth flow
+      setTimeout(() => {
+        const userData = {
+          name: 'Hammad Ali',
+          email: 'hammad@facebook.com',
+          loginMethod: 'Facebook',
+          avatar: 'H'
+        };
+        
+        completeLogin(userData);
+        button.innerHTML = originalContent;
+        button.disabled = false;
+      }, 2000);
+    }
+
+    function handleEmailLogin(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      
+      submitBtn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+      submitBtn.disabled = true;
+      
+      // Simulate email authentication
+      setTimeout(() => {
+        if (email && password) {
+          const userData = {
+            name: 'Hammad Ali',
+            email: email,
+            loginMethod: 'Email',
+            avatar: email.charAt(0).toUpperCase()
+          };
+          
+          completeLogin(userData);
+        } else {
+          showNotification('Please enter valid credentials', 'error');
+        }
+        
+        submitBtn.textContent = 'Sign In to Dashboard';
+        submitBtn.disabled = false;
+      }, 1500);
+    }
+
+    async function completeLogin(userData, remember = false) {
+      appState.user = {
+        ...userData,
+        isLoggedIn: true
+      };
+
+      // Save to localStorage if remember is requested
+      if (remember) {
+        localStorage.setItem('pizzaStudioUser', JSON.stringify(appState.user));
+      } else {
+        // Save a session-only flag (cleared on logout)
+        sessionStorage.setItem('pizzaStudioUser', JSON.stringify(appState.user));
+      }
+
+      // Update UI
+      updateUserInterface();
+      hideLoginModal();
+
+      showNotification(`Welcome back, ${userData.name}! Logged in via ${userData.loginMethod}`, 'success');
+    }
+
+    function updateUserInterface() {
+      if (appState.user.isLoggedIn) {
+        // Update profile display
+        document.querySelector('#userProfile span').textContent = appState.user.name.split(' ')[0];
+        document.querySelector('#userProfile .bg-blue-500').textContent = appState.user.avatar;
+        
+        // Update dropdown
+        document.getElementById('userDisplayName').textContent = appState.user.name;
+        document.getElementById('userEmail').textContent = appState.user.email;
+      }
+    }
+
+    function handleLogout() {
+      // Clear user data
+      appState.user = {
+        isLoggedIn: false,
+        name: '',
+        email: '',
+        loginMethod: ''
+      };
+      
+      // Clear localStorage
+      localStorage.removeItem('pizzaStudioUser');
+      
+      // Hide dropdown and show login
+      hideProfileDropdown();
+      showLoginModal();
+      
+      showNotification('Successfully logged out', 'info');
+    }
+
+    function showSignUpModal() {
+      // Toggle modal views: show sign up, hide login
+      document.getElementById('loginView').classList.add('hidden');
+      document.getElementById('signupView').classList.remove('hidden');
+      // clear errors
+      const e = document.getElementById('signUpError'); if (e) { e.classList.add('hidden'); e.textContent = ''; }
+    }
+
+    function setupEventListeners() {
+      // Authentication
+      document.getElementById('userProfile').addEventListener('click', toggleProfileDropdown);
+      document.getElementById('googleLogin').addEventListener('click', handleGoogleLogin);
+      document.getElementById('facebookLogin').addEventListener('click', handleFacebookLogin);
+      document.getElementById('emailLoginForm').addEventListener('submit', handleEmailLogin);
+      document.getElementById('signUpForm').addEventListener('submit', handleSignUp);
+      document.getElementById('showSignUp').addEventListener('click', showSignUpModal);
+      document.getElementById('backToLogin').addEventListener('click', backToLogin);
+      document.getElementById('forgotPassword').addEventListener('click', handleForgotPassword);
+      document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+      document.getElementById('showSignUp').addEventListener('click', showSignUpModal);
+      
+      // Navigation
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', handleNavigation);
+      });
+      
+      // Notifications
+      document.getElementById('notificationBell').addEventListener('click', toggleNotificationDropdown);
+      document.getElementById('markAllRead').addEventListener('click', markAllNotificationsRead);
+      
+      // Global Search
+      document.getElementById('globalSearch').addEventListener('input', handleGlobalSearch);
+      document.getElementById('globalSearch').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch(this.value);
+        }
+      });
+      
+      // Order management
+      document.getElementById('refreshOrders').addEventListener('click', refreshOrders);
+      document.getElementById('newOrderBtn').addEventListener('click', showNewOrderModal);
+      document.getElementById('printOrders').addEventListener('click', printOrders);
+      
+      // Order filtering and sorting
+      document.getElementById('orderSort').addEventListener('change', handleOrderSort);
+      document.getElementById('orderDate').addEventListener('change', handleDateFilter);
+      document.getElementById('selectAll').addEventListener('change', handleSelectAll);
+      
+      // Bulk actions
+      document.getElementById('bulkStatusUpdate').addEventListener('click', handleBulkStatusUpdate);
+      document.getElementById('bulkPrint').addEventListener('click', handleBulkPrint);
+      document.getElementById('bulkDelete').addEventListener('click', handleBulkDelete);
+      
+      // Order details modal
+      document.getElementById('closeOrderModal').addEventListener('click', hideOrderDetailsModal);
+      document.getElementById('updateOrderStatus').addEventListener('click', handleOrderStatusUpdate);
+      document.getElementById('printOrder').addEventListener('click', handlePrintOrder);
+      document.getElementById('refundOrder').addEventListener('click', handleRefundOrder);
+      
+      // Analytics
+      document.getElementById('analyticsTimeframe').addEventListener('change', updateAnalyticsTimeframe);
+      document.getElementById('exportReport').addEventListener('click', exportAnalyticsReport);
+      document.querySelectorAll('.chart-toggle').forEach(toggle => {
+        toggle.addEventListener('click', handleChartToggle);
+      });
+      document.getElementById('viewAllItems').addEventListener('click', showAllItemsModal);
+      
+      // Inventory management
+      document.getElementById('updateInventory').addEventListener('click', updateInventory);
+      
+      // Customer management
+      document.getElementById('exportCustomers').addEventListener('click', exportCustomerData);
+      
+      // Pizza builder
+      document.getElementById('pizzaSize').addEventListener('change', updatePizzaBuilder);
+      document.getElementById('crustType').addEventListener('change', updatePizzaBuilder);
+      document.getElementById('addToOrder').addEventListener('click', addToOrder);
+      
+      // Ingredient checkboxes
+      document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', updatePizzaBuilder);
+      });
+      
+      // Order status tabs
+      document.querySelectorAll('.order-tab').forEach(tab => {
+        tab.addEventListener('click', filterOrders);
+      });
+      
+      // Close modals on outside click
+      document.getElementById('loginModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          hideLoginModal();
+        }
+      });
+      
+      document.getElementById('orderDetailsModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          hideOrderDetailsModal();
+        }
+      });
+      
+      // Close dropdowns on outside click
+      document.addEventListener('click', function(e) {
+        if (!document.getElementById('userProfile').contains(e.target)) {
+          hideProfileDropdown();
+        }
+        if (!document.getElementById('notificationBell').contains(e.target)) {
+          hideNotificationDropdown();
+        }
+      });
+      
+      // Keyboard shortcuts
+      document.addEventListener('keydown', handleKeyboardShortcuts);
+    }
+
+    // --- Authentication helpers (client-side demo) ---
+    function getUsers() {
+      try {
+        const raw = localStorage.getItem('pizzaStudioUsers');
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem('pizzaStudioUsers', JSON.stringify(users));
+    }
+
+    function validateEmail(email) {
+      if (!email) return false;
+      // simple but effective regex
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    async function hashPassword(password) {
+      // Use Web Crypto (SHA-256) for demo only (do NOT use in production as a password storage method)
+      const enc = new TextEncoder();
+      const data = enc.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function handleEmailLogin(e) {
+      e.preventDefault();
+
+      const emailEl = document.getElementById('loginEmail');
+      const passEl = document.getElementById('loginPassword');
+      const rememberMe = document.getElementById('rememberMe').checked;
+      const errorEl = document.getElementById('loginError');
+      errorEl.classList.add('hidden');
+
+      const email = emailEl.value.trim().toLowerCase();
+      const password = passEl.value || '';
+
+      if (!validateEmail(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      if (password.length < 6) {
+        errorEl.textContent = 'Password must be at least 6 characters.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      const users = getUsers();
+      const userRecord = users.find(u => u.email === email);
+      if (!userRecord) {
+        errorEl.textContent = 'No account found for this email. Please sign up first.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      // verify password
+      const hashed = await hashPassword(password);
+      if (hashed !== userRecord.passwordHash) {
+        errorEl.textContent = 'Incorrect password. Please try again.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      // success
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const orig = submitBtn.textContent;
+      submitBtn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        completeLogin({ name: userRecord.name, email: userRecord.email, loginMethod: 'Email', avatar: userRecord.name.charAt(0).toUpperCase() }, rememberMe);
+        submitBtn.textContent = orig;
+        submitBtn.disabled = false;
+      }, 800);
+    }
+
+    async function handleSignUp(e) {
+      e.preventDefault();
+      const name = (document.getElementById('signName').value || '').trim();
+      const email = (document.getElementById('signEmail').value || '').trim().toLowerCase();
+      const pass = document.getElementById('signPassword').value || '';
+      const pass2 = document.getElementById('signPasswordConfirm').value || '';
+      const err = document.getElementById('signUpError');
+      err.classList.add('hidden'); err.textContent = '';
+
+      if (!name || name.length < 2) { err.textContent = 'Please enter your full name.'; err.classList.remove('hidden'); return; }
+      if (!validateEmail(email)) { err.textContent = 'Please enter a valid email address.'; err.classList.remove('hidden'); return; }
+      if (pass.length < 8) { err.textContent = 'Password should be at least 8 characters.'; err.classList.remove('hidden'); return; }
+      if (pass !== pass2) { err.textContent = 'Passwords do not match.'; err.classList.remove('hidden'); return; }
+
+      const users = getUsers();
+      if (users.find(u => u.email === email)) { err.textContent = 'An account with this email already exists. Please log in.'; err.classList.remove('hidden'); return; }
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const orig = submitBtn.textContent;
+      submitBtn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+      submitBtn.disabled = true;
+
+      const passwordHash = await hashPassword(pass);
+      const newUser = { id: 'U' + Date.now(), name, email, passwordHash, createdAt: Date.now() };
+      users.push(newUser);
+      saveUsers(users);
+
+      setTimeout(() => {
+        submitBtn.textContent = orig;
+        submitBtn.disabled = false;
+        showNotification('Account created successfully. You are now signed in.', 'success');
+        // Auto-login after signup
+        completeLogin({ name: newUser.name, email: newUser.email, loginMethod: 'Signup', avatar: newUser.name.charAt(0).toUpperCase() }, true);
+      }, 700);
+    }
+
+    function backToLogin() {
+      document.getElementById('signupView').classList.add('hidden');
+      document.getElementById('loginView').classList.remove('hidden');
+    }
+
+    function handleForgotPassword() {
+      const email = prompt('Enter your account email for password reset (demo):');
+      if (!email) return;
+      if (!validateEmail(email)) { showNotification('Please enter a valid email address.', 'error'); return; }
+      const users = getUsers();
+      const user = users.find(u => u.email === email.toLowerCase());
+      if (!user) { showNotification('No account found for this email.', 'error'); return; }
+      // Demo: cannot reset real password, provide guidance
+      showNotification('Password reset requested. In production the server would email instructions. (Demo mode)', 'info');
+    }
+
+    function updateCurrentTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-US', { 
+        hour12: true, 
+        hour: 'numeric', 
+        minute: '2-digit' 
+      });
+      document.getElementById('currentTime').textContent = timeString;
+    }
+
+    function populateOrdersTable() {
+      const tbody = document.getElementById('ordersTableBody');
+      tbody.innerHTML = '';
+      
+      let filteredOrders = [...sampleOrders];
+      
+      // Apply filters
+      if (appState.filters.status !== 'all') {
+        filteredOrders = filteredOrders.filter(order => order.status === appState.filters.status);
+      }
+      
+      if (appState.filters.date) {
+        const filterDate = new Date(appState.filters.date);
+        filteredOrders = filteredOrders.filter(order => {
+          const orderDate = new Date(order.timestamp);
+          return orderDate.toDateString() === filterDate.toDateString();
+        });
+      }
+      
+      // Apply sorting
+      filteredOrders.sort((a, b) => {
+        const { field, direction } = appState.sortConfig;
+        let aVal = a[field];
+        let bVal = b[field];
+        
+        if (field === 'total') {
+          aVal = parseFloat(aVal);
+          bVal = parseFloat(bVal);
+        } else if (field === 'time') {
+          aVal = a.timestamp;
+          bVal = b.timestamp;
+        }
+        
+        if (direction === 'asc') {
+          return aVal > bVal ? 1 : -1;
+        } else {
+          return aVal < bVal ? 1 : -1;
+        }
+      });
+      
+      filteredOrders.forEach(order => {
+        const row = document.createElement('tr');
+        row.className = `order-${order.status} cursor-pointer hover:bg-white/5`;
+        row.dataset.orderId = order.id;
+        
+        const itemsText = order.items.map(item => `${item.name} x${item.quantity}`).join(', ');
+        const priorityColor = {
+          'urgent': 'text-red-400',
+          'high': 'text-orange-400',
+          'normal': 'text-white/70'
+        };
+        
+        row.innerHTML = `
+          <td class="p-4">
+            <input type="checkbox" class="order-checkbox rounded" data-order-id="${order.id}">
+          </td>
+          <td class="p-4 font-mono">${order.id}</td>
+          <td class="p-4">
+            <div class="font-medium text-white">${order.customer}</div>
+            <div class="text-white/70 text-sm">${order.phone}</div>
+          </td>
+          <td class="p-4">
+            <div class="text-white text-sm">${itemsText}</div>
+            <div class="text-white/70 text-xs">${order.orderType}</div>
+          </td>
+          <td class="p-4 font-semibold">$${order.total.toFixed(2)}</td>
+          <td class="p-4">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold ${getStatusClass(order.status)}">
+              ${order.status.toUpperCase()}
+            </span>
+          </td>
+          <td class="p-4 text-white/70">${order.time}</td>
+          <td class="p-4">
+            <span class="px-2 py-1 rounded text-xs ${priorityColor[order.priority]}">
+              ${order.priority.toUpperCase()}
+            </span>
+          </td>
+          <td class="p-4">
+            <div class="flex space-x-2">
+              <button class="pro-btn px-3 py-1 rounded text-xs" onclick="showOrderDetails('${order.id}')">
+                View
+              </button>
+              <button class="pro-btn px-3 py-1 rounded text-xs" onclick="updateOrderStatus('${order.id}')">
+                Update
+              </button>
+            </div>
+          </td>
+        `;
+        
+        // Add click handler for row
+        row.addEventListener('click', (e) => {
+          if (!e.target.matches('input, button')) {
+            showOrderDetails(order.id);
+          }
+        });
+        
+        tbody.appendChild(row);
+      });
+      
+      // Update order counts
+      updateOrderCounts();
+      
+      // Setup checkbox listeners
+      document.querySelectorAll('.order-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', handleOrderSelection);
+      });
+    }
+
+    // Navigation Functions
+    function handleNavigation(e) {
+      const section = e.target.dataset.section;
+      appState.currentView = section;
+      
+      // Update active nav item
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('text-blue-400');
+        item.classList.add('text-white');
+      });
+      e.target.classList.remove('text-white');
+      e.target.classList.add('text-blue-400');
+      
+      // Show/hide sections
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      const targetSection = document.getElementById(`${section}Section`);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+      }
+      
+      showNotification(`Switched to ${section} view`, 'info');
+    }
+
+    // Notification Functions
+    function toggleNotificationDropdown() {
+      const dropdown = document.getElementById('notificationDropdown');
+      dropdown.classList.toggle('hidden');
+    }
+
+    function hideNotificationDropdown() {
+      document.getElementById('notificationDropdown').classList.add('hidden');
+    }
+
+    function markAllNotificationsRead() {
+      document.getElementById('notificationCount').textContent = '0';
+      document.getElementById('notificationCount').style.display = 'none';
+      showNotification('All notifications marked as read', 'success');
+    }
+
+    // Search Functions
+    function handleGlobalSearch(e) {
+      const query = e.target.value.toLowerCase();
+      if (query.length < 2) return;
+      
+      // Search through orders
+      const results = sampleOrders.filter(order => 
+        order.customer.toLowerCase().includes(query) ||
+        order.id.toLowerCase().includes(query) ||
+        order.items.some(item => item.name.toLowerCase().includes(query))
+      );
+      
+      // Show search results (simplified)
+      if (results.length > 0) {
+        showNotification(`Found ${results.length} results for "${query}"`, 'info');
+      }
+    }
+
+    function performSearch(query) {
+      showNotification(`Searching for: ${query}`, 'info');
+      // Implement full search functionality
+    }
+
+    // Order Management Functions
+    function showNewOrderModal() {
+      showNotification('New order creation modal would open here', 'info');
+    }
+
+    function printOrders() {
+      showNotification('Printing all visible orders...', 'info');
+      // Implement print functionality
+    }
+
+    function handleOrderSort(e) {
+      const field = e.target.value;
+      appState.sortConfig.field = field;
+      populateOrdersTable();
+      showNotification(`Orders sorted by ${field}`, 'info');
+    }
+
+    function handleDateFilter(e) {
+      appState.filters.date = e.target.value;
+      populateOrdersTable();
+      showNotification('Orders filtered by date', 'info');
+    }
+
+    function handleSelectAll(e) {
+      const checkboxes = document.querySelectorAll('.order-checkbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = e.target.checked;
+        if (e.target.checked) {
+          appState.selectedOrders.add(checkbox.dataset.orderId);
+        } else {
+          appState.selectedOrders.delete(checkbox.dataset.orderId);
+        }
+      });
+      updateBulkActions();
+    }
+
+    function handleOrderSelection(e) {
+      const orderId = e.target.dataset.orderId;
+      if (e.target.checked) {
+        appState.selectedOrders.add(orderId);
+      } else {
+        appState.selectedOrders.delete(orderId);
+      }
+      updateBulkActions();
+    }
+
+    function updateBulkActions() {
+      const bulkActions = document.getElementById('bulkActions');
+      const selectedCount = document.getElementById('selectedCount');
+      
+      if (appState.selectedOrders.size > 0) {
+        bulkActions.classList.remove('hidden');
+        selectedCount.textContent = appState.selectedOrders.size;
+      } else {
+        bulkActions.classList.add('hidden');
+      }
+    }
+
+    function handleBulkStatusUpdate() {
+      showNotification(`Updating status for ${appState.selectedOrders.size} orders`, 'info');
+    }
+
+    function handleBulkPrint() {
+      showNotification(`Printing ${appState.selectedOrders.size} selected orders`, 'info');
+    }
+
+    function handleBulkDelete() {
+      if (appState.selectedOrders.size > 0) {
+        showNotification(`Deleted ${appState.selectedOrders.size} orders`, 'success');
+        appState.selectedOrders.clear();
+        updateBulkActions();
+        populateOrdersTable();
+      }
+    }
+
+    // Order Details Functions
+    function showOrderDetails(orderId) {
+      const order = sampleOrders.find(o => o.id === orderId);
+      if (!order) return;
+      
+      const modal = document.getElementById('orderDetailsModal');
+      const content = document.getElementById('orderDetailsContent');
+      
+      content.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-6">
+            <h4 class="text-lg font-semibold text-white mb-4">Order Information</h4>
+            <div class="space-y-3">
+              <div class="flex justify-between">
+                <span class="text-white/70">Order ID:</span>
+                <span class="text-white font-mono">${order.id}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Status:</span>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold ${getStatusClass(order.status)}">
+                  ${order.status.toUpperCase()}
+                </span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Priority:</span>
+                <span class="text-white">${order.priority}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Order Type:</span>
+                <span class="text-white">${order.orderType}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Estimated Time:</span>
+                <span class="text-white">${order.estimatedTime}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="glass rounded-2xl p-6">
+            <h4 class="text-lg font-semibold text-white mb-4">Customer Information</h4>
+            <div class="space-y-3">
+              <div class="flex justify-between">
+                <span class="text-white/70">Name:</span>
+                <span class="text-white">${order.customer}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Phone:</span>
+                <span class="text-white">${order.phone}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Email:</span>
+                <span class="text-white">${order.email}</span>
+              </div>
+              ${order.address ? `
+                <div class="flex justify-between">
+                  <span class="text-white/70">Address:</span>
+                  <span class="text-white text-right">${order.address}</span>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass rounded-2xl p-6">
+          <h4 class="text-lg font-semibold text-white mb-4">Order Items</h4>
+          <div class="space-y-3">
+            ${order.items.map(item => `
+              <div class="flex justify-between items-center p-3 glass rounded-lg">
+                <div>
+                  <div class="text-white font-medium">${item.name}</div>
+                  <div class="text-white/70 text-sm">Quantity: ${item.quantity}</div>
+                </div>
+                <div class="text-white font-semibold">$${(item.price * item.quantity).toFixed(2)}</div>
+              </div>
+            `).join('')}
+            <div class="border-t border-white/20 pt-3 flex justify-between items-center">
+              <span class="text-white font-semibold text-lg">Total:</span>
+              <span class="text-white font-bold text-xl">$${order.total.toFixed(2)}</span>
+            </div>
+          </div>
+        </div>
+        
+        ${order.notes ? `
+          <div class="glass rounded-2xl p-6">
+            <h4 class="text-lg font-semibold text-white mb-4">Special Notes</h4>
+            <p class="text-white/70">${order.notes}</p>
+          </div>
+        ` : ''}
+      `;
+      
+      modal.classList.remove('hidden');
+    }
+
+    function hideOrderDetailsModal() {
+      document.getElementById('orderDetailsModal').classList.add('hidden');
+    }
+
+    function handleOrderStatusUpdate() {
+      showNotification('Order status updated successfully', 'success');
+      hideOrderDetailsModal();
+    }
+
+    function handlePrintOrder() {
+      showNotification('Order printed successfully', 'info');
+    }
+
+    function handleRefundOrder() {
+      showNotification('Refund processed successfully', 'success');
+      hideOrderDetailsModal();
+    }
+
+    // Analytics Functions
+    function updateAnalyticsTimeframe(e) {
+      const timeframe = e.target.value;
+      showNotification(`Analytics updated for ${timeframe}`, 'info');
+      // Update charts and metrics based on timeframe
+    }
+
+    function exportAnalyticsReport() {
+      showNotification('Analytics report exported successfully', 'success');
+    }
+
+    function handleChartToggle(e) {
+      const chartType = e.target.dataset.chart;
+      
+      // Update active toggle
+      document.querySelectorAll('.chart-toggle').forEach(toggle => {
+        toggle.classList.remove('active', 'text-blue-400');
+        toggle.classList.add('text-white/70');
+      });
+      e.target.classList.add('active', 'text-blue-400');
+      e.target.classList.remove('text-white/70');
+      
+      showNotification(`Chart switched to ${chartType} view`, 'info');
+    }
+
+    function showAllItemsModal() {
+      showNotification('All items modal would open here', 'info');
+    }
+
+    // Utility Functions
+    function updateOrderCounts() {
+      const counts = {
+        all: sampleOrders.length,
+        pending: sampleOrders.filter(o => o.status === 'pending').length,
+        preparing: sampleOrders.filter(o => o.status === 'preparing').length,
+        baking: sampleOrders.filter(o => o.status === 'baking').length,
+        ready: sampleOrders.filter(o => o.status === 'ready').length
+      };
+      
+      Object.keys(counts).forEach(status => {
+        const element = document.getElementById(`${status}Count`);
+        if (element) {
+          element.textContent = counts[status];
+        }
+      });
+    }
+
+    function sortTable(field) {
+      if (appState.sortConfig.field === field) {
+        appState.sortConfig.direction = appState.sortConfig.direction === 'asc' ? 'desc' : 'asc';
+      } else {
+        appState.sortConfig.field = field;
+        appState.sortConfig.direction = 'asc';
+      }
+      populateOrdersTable();
+    }
+
+    function handleKeyboardShortcuts(e) {
+      // Ctrl/Cmd + R: Refresh orders
+      if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+        e.preventDefault();
+        refreshOrders();
+      }
+      
+      // Ctrl/Cmd + N: New order
+      if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+        e.preventDefault();
+        showNewOrderModal();
+      }
+      
+      // Escape: Close modals
+      if (e.key === 'Escape') {
+        hideOrderDetailsModal();
+        hideProfileDropdown();
+        hideNotificationDropdown();
+      }
+    }
+
+    function getStatusClass(status) {
+      const classes = {
+        pending: 'bg-orange-500/20 text-orange-400',
+        preparing: 'bg-blue-500/20 text-blue-400',
+        baking: 'bg-purple-500/20 text-purple-400',
+        ready: 'bg-green-500/20 text-green-400',
+        delivered: 'bg-gray-500/20 text-gray-400'
+      };
+      return classes[status] || 'bg-gray-500/20 text-gray-400';
+    }
+
+    function updateMetrics() {
+      // Simulate real-time metric updates
+      const metrics = {
+        revenue: Math.floor(Math.random() * 1000) + 2000,
+        orders: Math.floor(Math.random() * 20) + 30,
+        avgOrder: (Math.random() * 30 + 45).toFixed(2),
+        satisfaction: (Math.random() * 0.5 + 4.5).toFixed(1)
+      };
+      
+      document.getElementById('todayRevenue').textContent = `$${metrics.revenue.toLocaleString()}`;
+      document.getElementById('todayOrders').textContent = metrics.orders;
+      document.getElementById('avgOrderValue').textContent = `$${metrics.avgOrder}`;
+      document.getElementById('customerSat').textContent = metrics.satisfaction;
+    }
+
+    function setupPizzaBuilder() {
+      updatePizzaBuilder();
+    }
+
+    function updatePizzaBuilder() {
+      const size = document.getElementById('pizzaSize').value;
+      const crust = document.getElementById('crustType').value;
+      const checkedIngredients = document.querySelectorAll('.ingredient-checkbox:checked');
+      
+      // Calculate base price
+      const sizePrices = {
+        small: 12.99,
+        medium: 16.99,
+        large: 20.99,
+        xlarge: 24.99
+      };
+      
+      let total = sizePrices[size];
+      
+      // Add crust upcharge
+      if (crust === 'stuffed') total += 3;
+      if (crust === 'gluten-free') total += 4;
+      
+      // Update order summary
+      const summary = document.getElementById('orderSummary');
+      summary.innerHTML = `
+        <div class="flex justify-between text-white">
+          <span>${size.charAt(0).toUpperCase() + size.slice(1)} Pizza</span>
+          <span>$${sizePrices[size]}</span>
+        </div>
+      `;
+      
+      if (crust === 'stuffed' || crust === 'gluten-free') {
+        const crustName = crust === 'stuffed' ? 'Stuffed Crust' : 'Gluten-Free Crust';
+        const crustPrice = crust === 'stuffed' ? 3 : 4;
+        summary.innerHTML += `
+          <div class="flex justify-between text-white">
+            <span>${crustName}</span>
+            <span>+$${crustPrice}</span>
+          </div>
+        `;
+      }
+      
+      // Add ingredients
+      checkedIngredients.forEach(ingredient => {
+        const price = parseFloat(ingredient.dataset.price);
+        const name = ingredient.dataset.ingredient.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+        total += price;
+        
+        summary.innerHTML += `
+          <div class="flex justify-between text-white">
+            <span>${name}</span>
+            <span>+$${price.toFixed(2)}</span>
+          </div>
+        `;
+      });
+      
+      document.getElementById('orderTotal').textContent = `$${total.toFixed(2)}`;
+      
+      // Update nutritional info
+      updateNutritionalInfo(size, checkedIngredients.length);
+    }
+
+    function updateNutritionalInfo(size, ingredientCount) {
+      const baseCalories = { small: 320, medium: 420, large: 520, xlarge: 620 };
+      const calories = baseCalories[size] + (ingredientCount * 45);
+      
+      document.getElementById('calories').textContent = calories;
+      document.getElementById('protein').textContent = Math.floor(calories * 0.15 / 4) + 'g';
+      document.getElementById('carbs').textContent = Math.floor(calories * 0.45 / 4) + 'g';
+      document.getElementById('fat').textContent = Math.floor(calories * 0.25 / 9) + 'g';
+    }
+
+    function addToOrder() {
+      const button = document.getElementById('addToOrder');
+      button.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        showNotification('Pizza added to order successfully!', 'success');
+        button.textContent = 'Add to Order';
+        button.disabled = false;
+        
+        // Reset form
+        document.querySelectorAll('.ingredient-checkbox').forEach(cb => cb.checked = false);
+        updatePizzaBuilder();
+      }, 1500);
+    }
+
+    function refreshOrders() {
+      const button = document.getElementById('refreshOrders');
+      button.innerHTML = '🔄 <div class="loading-spinner inline-block ml-2"></div>';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        populateOrdersTable();
+        updateMetrics();
+        button.textContent = '🔄 Refresh';
+        button.disabled = false;
+        showNotification('Orders refreshed successfully!', 'info');
+      }, 1000);
+    }
+
+    function updateInventory() {
+      const button = document.getElementById('updateInventory');
+      button.innerHTML = '📦 <div class="loading-spinner inline-block ml-2"></div>';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '📦 Update Stock';
+        button.disabled = false;
+        showNotification('Inventory updated successfully!', 'success');
+      }, 1500);
+    }
+
+    function exportCustomerData() {
+      const button = document.getElementById('exportCustomers');
+      button.innerHTML = '📊 <div class="loading-spinner inline-block ml-2"></div>';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '📊 Export Data';
+        button.disabled = false;
+        showNotification('Customer data exported to CSV!', 'success');
+      }, 2000);
+    }
+
+    function updateOrderStatus(orderId) {
+      showNotification(`Order ${orderId} status updated!`, 'info');
+    }
+
+    function filterOrders(e) {
+      const status = e.target.dataset.status;
+      document.querySelectorAll('.order-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      e.target.classList.add('active');
+      
+      showNotification(`Filtered orders by: ${status}`, 'info');
+    }
+
+    function startRealTimeUpdates() {
+      // Update time every minute
+      setInterval(updateCurrentTime, 60000);
+      
+      // Update metrics every 30 seconds
+      setInterval(updateMetrics, 30000);
+      
+      // Simulate real-time order updates
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          showNotification('New order received!', 'info');
+        }
+      }, 45000);
+    }
+
+    function showNotification(message, type = 'info', duration = 4000) {
+      const container = document.getElementById('notificationContainer');
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      
+      container.appendChild(notification);
+      setTimeout(() => notification.classList.add('show'), 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          if (container.contains(notification)) {
+            container.removeChild(notification);
+          }
+        }, 300);
+      }, duration);
+    }
+
+    // Initialize real-time clock
+    setInterval(updateCurrentTime, 1000);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99015604f4890048',t:'MTc2MDcyMDI1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if(
+  'loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechang
+  e=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
